@@ -1,0 +1,332 @@
+/*-----------------------------------------------------------------*/
+/* Fonts */
+/*-----------------------------------------------------------------*/
+@font-face { font-family: testFont; src: url('fonts/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2'); } 
+
+@font-face { font-family: boldFont; src: url('fonts/mem5YaGs126MiZpBA-UN7rgOUuhpKKSTjw.woff2'); } 
+
+
+/*-----------------------------------------------------------------*/
+/* General text formatting */
+/*-----------------------------------------------------------------*/
+h1.g1{
+  font-family: "Times New Roman";
+  color: rgb(10,40,135);
+  text-align: left;
+  font-size: 2.2em;
+  font-weight: bold;
+  font-weight: none;
+}
+
+/* Headers */
+h1.g2 {
+  font-family: "Times New Roman";
+  color: rgb(10,40,135);
+  text-align: left;
+  font-size: 1.75em;
+}
+
+/* Headers */
+h2.g1 {
+  font-family: "boldFont";
+  color: rgb(10,40,135);
+  text-align: left;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Paragraphs (basic text) */
+p {
+  font-family: "Times New Roman";
+  color: black;
+  text-align: justify;
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+p2.mylist {
+  font-family: "testFont";
+  color: black;
+  text-align: justify;
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.75;
+}
+
+/* Paragraphs (basic text) */
+.s1 {
+  font-family: "testFont";
+/*   color: black; */
+  text-align: justify;
+  font-size: 1.1em;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+/* a {
+  text-decoration: none;
+} */
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
+}
+
+/* Paragraphs (basic text) */
+pcoll {
+  font-family: "testFont";
+  color: black;
+  text-align: justify;
+  font-size: 1.1em;
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+#img-link, #img-link img{
+   text-decoration: none !important;
+   border:0px !important;
+   outline:none;
+   border-width: 0px;
+   outline-width:0px;
+   border-bottom: none;
+}
+
+/*-----------------------------------------------------------------*/
+/* Image alignment and image text*/
+/*-----------------------------------------------------------------*/
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.picText1 {
+  font-family: "boldFont";
+  color: rgb(10,40,135);
+  text-align: center;
+  font-size: 2.2em;
+  margin-top: 0.5em;
+  margin-bottom: 0
+}
+
+.picText2 {
+  font-family: "testFont";
+  color: gray;
+  text-align: center;
+  font-weight: normal;
+  font-size: 0.95em;
+  margin: 0;
+}
+
+/*-----------------------------------------------------------------*/
+/* Banner and banner-related styles */
+/*-----------------------------------------------------------------*/
+ul.nav a:hover { background-color: rgb(30,144,255) !important; }
+
+/* Add a black background color to the top navigation */
+.topnav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgb(10,40,135);
+  overflow: hidden;
+  opacity: 1.0;
+  z-index: 9999;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a2 {
+  font-family: "boldFont";
+  float: left;
+  color: white;
+  text-align: left;
+  padding-left: 15%;
+  padding-right: 15%;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  font-family: "testFont";
+  float: left;
+  color: white;
+  text-align: center;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.75em;
+  padding-bottom: 0.75em;  
+  display: block;
+  text-decoration: none;
+  font-size: 1.5em;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: rgb(30,144,255);
+  color: white;
+  text-decoration: none;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #0052cc;
+  color: white;
+}
+
+/*-----------------------------------------------------------------*/
+/* Text split within the page */
+/*-----------------------------------------------------------------*/
+
+/* Container for text */
+.container {
+  width: 70%;
+  margin: auto;
+}
+
+.container-fluid {
+  max-width: 1200px;
+/*   margin: auto; */
+}
+
+.columnImage {
+  float: left;
+  width: 32.5%;
+  padding: 0%;
+  margin: auto;
+}
+
+.column40 {
+  float: left;
+  width: 32.5%;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 2em;
+  padding-bottom: 0;
+  margin: auto;
+}
+
+.column60 {
+  float: center;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0;
+  margin-left: 35%;
+  margin-right: 12.5%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*-----------------------------------------------------------------*/
+/* Add gray line between sections */
+/*-----------------------------------------------------------------*/
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1.5px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*-----------------------------------------------------------------*/
+/* Collapsible button */
+/*-----------------------------------------------------------------*/
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+  background-color: white;
+  color: rgb(10,40,135);
+  cursor: pointer;
+  padding: 8px;
+  width: auto;
+  border: solid rgb(10,40,135);
+  text-align: center;
+  outline: none;
+  font-size: 1em;
+  border-radius: 12px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: rgb(30,144,255);
+}
+
+.dropdown {
+  background-color: white;
+  color: rgb(10,40,135);
+  cursor: pointer;
+  padding: 8px;
+  width: auto;
+  border: solid rgb(10,40,135);
+  text-align: center;
+  outline: none;
+  font-size: 1em;
+  border-radius: 12px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .dropdown:hover {
+  background-color: rgb(30,144,255);
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  float: center;
+  margin-left: auto;
+  width: auto;
+  padding: 20px 20px;
+  text-align: justify;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.indent {
+  float: center;
+  margin-left: auto;
+  width: auto;
+  padding: 20px 20px;
+  text-align: justify;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+/*-----------------------------------------------------------------*/
+/* Link to PDF button */
+/*-----------------------------------------------------------------*/
+/* Style the button that is used to open and close the collapsible content */
+.pdfLink {
+  background-color: white;
+  color: rgb(10,40,135);
+  cursor: pointer;
+  padding: 8px;
+  width: auto;
+  border: solid rgb(10,40,135);
+  text-align: center;
+  outline: none;
+  font-size: 1em;
+  border-radius: 12px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .pdfLink:hover {
+  background-color: rgb(30,144,255);
+}
+
+/*-----------------------------------------------------------------*/
+/* Resize for tablets and phones */
+/*-----------------------------------------------------------------*/
+
