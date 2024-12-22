@@ -101,14 +101,14 @@ pcoll {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 45%;
+    width: 55%;
 }
 
 .picText1 {
   font-family: "boldFont";
   color: rgb(10,40,135);
   text-align: center;
-  font-size: 0.6em;
+  font-size: 0.7m;
   margin-top: 0.4em;
   margin-bottom: 0
 }
@@ -118,7 +118,7 @@ pcoll {
   color: gray;
   text-align: center;
   font-weight: normal;
-  font-size: 0.6em;
+  font-size: 0.7em;
   margin: 0;
 }
 
