@@ -110,10 +110,9 @@
     main.content{ margin-left:0; max-width:100%; padding:48px 24px 80px; }
   }
 
-  /* ---------- SECTIONS ---------- */
-  section{ padding:64px 0; }
-  section:first-child{ padding-top:0; }
-  section + section{ border-top:1px solid var(--line); }
+  /* ---------- SECTIONS (tab panels) ---------- */
+  section{ padding:0; display:none; }
+  section.active{ display:block; }
   .eyebrow{
     font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--violet);
     text-transform:lowercase; display:flex; align-items:center; gap:8px; margin-bottom:20px;
@@ -226,7 +225,7 @@
 
   <main class="content">
 
-    <section id="about">
+    <section id="about" class="active">
       <p class="eyebrow">about</p>
       <h2 class="section-title">Building the physical layer for wireless networks in the body</h2>
       <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/" target="_blank" rel="noopener">Institute of Wireless Internet of Things</a> at Northeastern University, working under the supervision of Professor <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
@@ -420,16 +419,24 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   const links = document.querySelectorAll('#sideNav a');
-  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+  const sections = document.querySelectorAll('main.content > section');
 
-  const setActive = () => {
-    let current = sections[0];
-    const pos = window.scrollY + 120;
-    sections.forEach(sec => { if (sec && sec.offsetTop <= pos) current = sec; });
-    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
-  };
-  document.addEventListener('scroll', setActive, { passive: true });
-  setActive();
+  function showTab(id, updateHash){
+    sections.forEach(sec => sec.classList.toggle('active', sec.id === id));
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (updateHash) history.replaceState(null, '', '#' + id);
+  }
+
+  links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      showTab(a.getAttribute('href').slice(1), true);
+    });
+  });
+
+  const initial = (location.hash || '#about').slice(1);
+  showTab(document.getElementById(initial) ? initial : 'about', false);
 </script>
 
 </body>
