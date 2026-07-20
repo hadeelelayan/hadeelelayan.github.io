@@ -478,7 +478,7 @@
     const text = el.getAttribute('data-text');
     let i = 0;
     el.textContent = '';
-    const speed = 45;
+    const speed = 180;
     const step = () => {
       if (i <= text.length){
         el.textContent = text.slice(0, i);
@@ -488,7 +488,7 @@
         el.classList.add('done');
       }
     };
-    step();
+    setTimeout(step, 400);
   }
   const titleEl = document.getElementById('emilyTitle');
   if (titleEl) typewrite(titleEl);
