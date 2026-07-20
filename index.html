@@ -161,6 +161,13 @@
     font-family:'Space Grotesk', sans-serif; font-size:1.1rem; color:var(--ink-muted);
     margin:0 0 32px; max-width:580px;
   }
+  .tayf-gloss{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-muted);
+    font-style:italic; margin:-4px 0 20px;
+  }
+  .tayf-next{
+    display:inline-block; margin-top:28px; font-family:'IBM Plex Mono', monospace; font-size:0.86rem;
+  }
   .tayf-figure{ text-align:center; margin:0 0 8px; }
   .tayf-img{
     display:block; width:100%; max-width:560px; border-radius:12px;
@@ -261,10 +268,12 @@
     <section id="tayf" class="active">
       <p class="eyebrow">tayf</p>
       <h2 class="tayf-title"><span class="typewriter" id="tayfTitle" data-text="Welcome to TAYF (طيف)"></span></h2>
-      <p class="tayf-subtitle">A Multidisciplinary Research Vision Exploring the Electromagnetic Spectrum from Physics to Intelligence....</p>
+      <p class="tayf-gloss">tayf — Arabic for spectrum</p>
+      <p class="tayf-subtitle">A Multidisciplinary Research Vision Exploring the Electromagnetic Spectrum from Physics to Intelligence…</p>
       <div class="tayf-figure">
         <img class="tayf-img" src="images/tayf-diagram.png" alt="TAYF — a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
       </div>
+      <a href="#about" class="tayf-next">→ Read more about me</a>
     </section>
 
     <section id="about">
@@ -478,6 +487,13 @@
   }
 
   links.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      showTab(a.getAttribute('href').slice(1), true);
+    });
+  });
+
+  document.querySelectorAll('.tayf-next').forEach(a => {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       showTab(a.getAttribute('href').slice(1), true);
