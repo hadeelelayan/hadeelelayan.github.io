@@ -20,6 +20,9 @@
     --line:#DFE3E1;
     --violet:#4C4FFB;
     --teal:#0FB8A6;
+    --coral:#FF6B5B;
+    --amber:#F0A83A;
+    --accent:#4C4FFB;
     --sidebar-w:300px;
   }
 
@@ -60,10 +63,12 @@
     overflow-y:auto;
     display:flex;
     flex-direction:column;
+    background:linear-gradient(165deg, rgba(76,79,251,0.05), rgba(15,184,166,0.04) 55%, rgba(255,107,91,0.04));
   }
   .portrait{
     width:104px; height:104px; border-radius:50%;
-    object-fit:cover; border:1px solid var(--line); margin-bottom:20px;
+    object-fit:cover; object-position:center 20%;
+    border:1px solid var(--line); margin-bottom:20px;
   }
   .side-name{ font-size:1.4rem; font-weight:700; margin:0 0 2px; line-height:1.15; }
   .side-name-ar{ display:block; font-weight:400; color:var(--ink-muted); font-size:0.72em; margin-top:2px; }
@@ -79,7 +84,7 @@
     text-transform:lowercase; transition:color .15s, border-color .15s;
   }
   nav.side-nav a:hover, nav.side-nav a.active{
-    color:var(--violet); border-left-color:var(--violet); text-decoration:none;
+    color:var(--accent); border-left-color:var(--accent); text-decoration:none;
   }
 
   .side-links{ display:flex; gap:12px; margin-top:auto; padding-top:24px; }
@@ -88,7 +93,7 @@
     display:flex; align-items:center; justify-content:center; background:var(--paper-raised);
     transition:border-color .15s, transform .15s;
   }
-  .icon-link:hover{ border-color:var(--violet); transform:translateY(-2px); text-decoration:none; }
+  .icon-link:hover{ border-color:var(--accent); transform:translateY(-2px); text-decoration:none; }
   .icon-link img{ width:16px; height:16px; object-fit:contain; }
 
   main.content{
@@ -105,7 +110,7 @@
     }
     nav.side-nav{ flex-direction:row; flex-wrap:wrap; gap:4px 16px; margin-bottom:20px; }
     nav.side-nav a{ border-left:none; padding-left:0; border-bottom:2px solid transparent; }
-    nav.side-nav a:hover, nav.side-nav a.active{ border-left-color:transparent; border-bottom-color:var(--violet); }
+    nav.side-nav a:hover, nav.side-nav a.active{ border-left-color:transparent; border-bottom-color:var(--accent); }
     .side-links{ margin-top:0; }
     main.content{ margin-left:0; max-width:100%; padding:48px 24px 80px; }
   }
@@ -114,8 +119,9 @@
   section{ padding:0; display:none; }
   section.active{ display:block; }
   .eyebrow{
-    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--violet);
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--accent);
     text-transform:lowercase; display:flex; align-items:center; gap:8px; margin-bottom:20px;
+    transition:color .2s;
   }
   .eyebrow::before{ content:"//"; color:var(--teal); }
   h2.section-title{ font-size:1.55rem; font-weight:600; margin:0 0 14px; }
@@ -134,13 +140,22 @@
     font-family:'IBM Plex Mono', monospace; font-size:0.74rem; padding:5px 10px; border-radius:999px;
     border:1px solid var(--line); color:var(--ink-muted); background:var(--paper-raised);
   }
+  .tag-violet{ color:var(--violet); border-color:var(--violet); background:rgba(76,79,251,0.06); }
+  .tag-teal{ color:var(--teal); border-color:var(--teal); background:rgba(15,184,166,0.07); }
+  .tag-coral{ color:var(--coral); border-color:var(--coral); background:rgba(255,107,91,0.07); }
+
+  .typewriter{
+    display:inline-block; border-right:2px solid var(--accent);
+    white-space:normal;
+  }
+  .typewriter.done{ border-right:2px solid transparent; }
 
   /* timeline (education) */
   .timeline{ position:relative; padding-left:24px; }
   .timeline::before{ content:""; position:absolute; left:4px; top:6px; bottom:6px; width:1px; background:var(--line); }
   .tl-item{ position:relative; margin-bottom:40px; }
   .tl-item:last-child{ margin-bottom:0; }
-  .tl-item::before{ content:""; position:absolute; left:-24px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--violet); }
+  .tl-item::before{ content:""; position:absolute; left:-24px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--accent); }
   .tl-date{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--teal); display:block; margin-bottom:6px; }
   .tl-degree{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.08rem; margin:0 0 6px; }
   .tl-meta{ color:var(--ink-muted); font-size:0.96rem; margin:0 0 5px; max-width:560px; }
@@ -227,14 +242,14 @@
 
     <section id="about" class="active">
       <p class="eyebrow">about</p>
-      <h2 class="section-title">Building the physical layer for wireless networks in the body</h2>
+      <h2 class="section-title"><span class="typewriter" id="mainTitle" data-text="Talking to Proteins, One Terahertz Wave at a Time"></span></h2>
       <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/" target="_blank" rel="noopener">Institute of Wireless Internet of Things</a> at Northeastern University, working under the supervision of Professor <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
       <p>My research explores the intersection of terahertz (THz) communication systems, electromagnetic wave theory, and nano-bio channel engineering, with a unified goal of building the physical-layer and propagation foundations for next-generation wireless networks that operate inside and around the human body. I develop rigorous channel models, signal processing frameworks, and information-theoretic analyses for THz propagation in heterogeneous biological media, advancing the theoretical foundations of intra-body nanonetworks and 6G wireless system design.</p>
       <p>A central focus is understanding how THz electromagnetic fields couple to biological macromolecules, particularly proteins, enabling wireless control of molecular processes at the nanoscale. Through the TeraNova platform, I integrate propagation theory with experimental system design to produce scalable, high-efficiency nano-communication and sensing solutions, establishing intelligent cyber-biological interfaces that tightly couple biological processes with communication and computational infrastructures.</p>
       <div class="tags">
-        <span class="tag">terahertz comms &amp; sensing</span>
-        <span class="tag">nano-bio channel modeling</span>
-        <span class="tag">6G wireless networks</span>
+        <span class="tag tag-violet">terahertz comms &amp; sensing</span>
+        <span class="tag tag-teal">nano-bio channel modeling</span>
+        <span class="tag tag-coral">6G wireless networks</span>
       </div>
     </section>
 
@@ -402,7 +417,7 @@
       </ul>
 
       <h3 class="sub-title">Press Coverage</h3>
-      <p class="tl-meta">MIT Technology Review Arabia · University of Toronto News</p>
+      <p class="tl-meta"><a href="https://majarra.com/en/about/news/%D8%A5%D8%B9%D9%84%D8%A7%D9%86-%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D8%B2%D9%8A%D9%86-%D8%A8%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%22%D9%85%D8%A8%D8%AA%D9%83%D8%B1%D9%88%D9%86-%D8%AF%D9%88%D9%86-35%22-%D9%84%D8%B9%D8%A7%D9%85-2023/" target="_blank" rel="noopener">MIT Technology Review Arabia</a> · <a href="https://www.ece.utoronto.ca/news/talking-to-proteins-ece-grad-student-uses-electromagnetic-signals-to-interact-with-molecules-in-our-body/" target="_blank" rel="noopener">University of Toronto News</a></p>
     </section>
 
     <section id="contact">
@@ -421,9 +436,15 @@
   const links = document.querySelectorAll('#sideNav a');
   const sections = document.querySelectorAll('main.content > section');
 
+  const accentMap = {
+    about:'#4C4FFB', education:'#0FB8A6', research:'#FF6B5B', publications:'#F0A83A',
+    honors:'#4C4FFB', teaching:'#0FB8A6', service:'#FF6B5B', contact:'#F0A83A'
+  };
+
   function showTab(id, updateHash){
     sections.forEach(sec => sec.classList.toggle('active', sec.id === id));
     links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    document.documentElement.style.setProperty('--accent', accentMap[id] || '#4C4FFB');
     window.scrollTo({ top: 0, behavior: 'instant' });
     if (updateHash) history.replaceState(null, '', '#' + id);
   }
@@ -437,6 +458,26 @@
 
   const initial = (location.hash || '#about').slice(1);
   showTab(document.getElementById(initial) ? initial : 'about', false);
+
+  /* Typewriter title: reveal one letter at a time, then leave it be */
+  function typewrite(el){
+    const text = el.getAttribute('data-text');
+    let i = 0;
+    el.textContent = '';
+    const speed = 45;
+    const step = () => {
+      if (i <= text.length){
+        el.textContent = text.slice(0, i);
+        i++;
+        setTimeout(step, speed);
+      } else {
+        el.classList.add('done');
+      }
+    };
+    step();
+  }
+  const titleEl = document.getElementById('mainTitle');
+  if (titleEl) typewrite(titleEl);
 </script>
 
 </body>
