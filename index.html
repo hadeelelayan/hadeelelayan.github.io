@@ -98,6 +98,7 @@
 
   main.content{
     margin-left:var(--sidebar-w);
+    width:calc(100% - var(--sidebar-w));
     display:flex;
     justify-content:center;
     padding:64px 48px 100px;
@@ -114,7 +115,7 @@
     nav.side-nav a{ border-left:none; padding-left:0; border-bottom:2px solid transparent; }
     nav.side-nav a:hover, nav.side-nav a.active{ border-left-color:transparent; border-bottom-color:var(--accent); }
     .side-links{ margin-top:0; }
-    main.content{ margin-left:0; padding:48px 24px 80px; }
+    main.content{ margin-left:0; width:100%; padding:48px 24px 80px; }
   }
 
   /* ---------- SECTIONS (tab panels) ---------- */
@@ -158,7 +159,7 @@
   }
   .emily-subtitle{
     font-family:'Space Grotesk', sans-serif; font-size:1.1rem; color:var(--ink-muted);
-    margin:0 0 32px; max-width:520px;
+    margin:0 0 32px; max-width:580px;
   }
   .emily-figure{ text-align:center; margin:0 0 8px; }
   .emily-img{
@@ -259,8 +260,8 @@
   <div class="content-inner">
     <section id="emily" class="active">
       <p class="eyebrow">emily</p>
-      <h2 class="emily-title"><span class="typewriter" id="emilyTitle" data-text="Welcome to the World of EMILY"></span></h2>
-      <p class="emily-subtitle">I study how electromagnetic waves sense, model, and control physical and living systems.</p>
+      <h2 class="emily-title"><span class="typewriter" id="emilyTitle" data-text="Welcome to TAYF"></span></h2>
+      <p class="emily-subtitle">A Research Vision: Exploring the Electromagnetic Spectrum from Physics to Intelligence.</p>
       <div class="emily-figure">
         <img class="emily-img" src="images/emily-diagram.png" alt="EMILY — Electromagnetic Intelligence for Living and Physical Systems: a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
       </div>
