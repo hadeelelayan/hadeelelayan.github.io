@@ -151,17 +151,17 @@
   .typewriter.done{ border-right:2px solid transparent; }
 
   .emily-title{
-    font-size:1.55rem; font-weight:700; letter-spacing:0.02em;
-    margin:36px 0 20px; color:var(--accent); transition:color .2s;
+    font-size:1.9rem; font-weight:700; letter-spacing:0.01em;
+    margin:8px 0 14px; color:var(--accent); transition:color .2s;
   }
-  .emily-figure{ text-align:center; margin:0 0 32px; }
+  .emily-subtitle{
+    font-family:'Space Grotesk', sans-serif; font-size:1.1rem; color:var(--ink-muted);
+    margin:0 0 32px; max-width:520px;
+  }
+  .emily-figure{ text-align:center; margin:0 0 8px; }
   .emily-img{
-    display:block; width:100%; max-width:520px; border-radius:12px;
-    border:1px solid var(--line); margin:0 auto 16px;
-  }
-  .emily-caption{
-    font-style:italic; color:var(--ink-muted); font-size:0.96rem;
-    max-width:560px; margin:0 auto; text-align:left;
+    display:block; width:100%; max-width:560px; border-radius:12px;
+    border:1px solid var(--line); margin:0 auto;
   }
 
   /* timeline (education) */
@@ -235,7 +235,8 @@
     <p class="side-role">Postdoctoral Fellow, Ultrabroadband Nanonetworking Laboratory — Institute for the Wireless Internet of Things, Northeastern University</p>
 
     <nav class="side-nav" id="sideNav">
-      <a href="#about">about</a>
+      <a href="#emily">emily</a>
+      <a href="#about">about me</a>
       <a href="#education">education</a>
       <a href="#research">research</a>
       <a href="#publications">publications</a>
@@ -254,15 +255,19 @@
 
   <main class="content">
 
-    <section id="about" class="active">
-      <p class="eyebrow">about</p>
-      <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/" target="_blank" rel="noopener">Institute of Wireless Internet of Things</a> at Northeastern University, working under the supervision of Professor <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
-
-      <h3 class="emily-title"><span class="typewriter" id="emilyTitle" data-text="Research Vision: EMILY"></span></h3>
+    <section id="emily" class="active">
+      <p class="eyebrow">emily</p>
+      <h2 class="emily-title"><span class="typewriter" id="emilyTitle" data-text="Welcome to the World of EMILY"></span></h2>
+      <p class="emily-subtitle">I study the electromagnetic intelligence of physical and living systems.</p>
       <div class="emily-figure">
         <img class="emily-img" src="images/emily-diagram.png" alt="EMILY — Electromagnetic Intelligence for Living and Physical Systems: a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
-        <p class="emily-caption">EMILY is the framework behind my work — using electromagnetic waves to sense, model, and control systems from proteins to 6G networks. It's the throughline connecting my papers, projects, and collaborations into one research vision.</p>
       </div>
+    </section>
+
+    <section id="about">
+      <p class="eyebrow">about</p>
+      <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/" target="_blank" rel="noopener">Institute of Wireless Internet of Things</a> at Northeastern University, working under the supervision of Professor <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
+      <p>My work centers on EMILY — using electromagnetic waves to sense, model, and control systems from proteins to 6G networks. It's the throughline connecting my papers, projects, and collaborations into one research vision.</p>
       <div class="tags">
         <span class="tag tag-violet">terahertz comms &amp; sensing</span>
         <span class="tag tag-teal">nano-bio channel modeling</span>
@@ -454,8 +459,8 @@
   const sections = document.querySelectorAll('main.content > section');
 
   const accentMap = {
-    about:'#4C4FFB', education:'#0FB8A6', research:'#FF6B5B', publications:'#F0A83A',
-    honors:'#4C4FFB', teaching:'#0FB8A6', service:'#FF6B5B', contact:'#F0A83A'
+    emily:'#4C4FFB', about:'#0FB8A6', education:'#FF6B5B', research:'#F0A83A',
+    publications:'#4C4FFB', honors:'#0FB8A6', teaching:'#FF6B5B', service:'#F0A83A', contact:'#4C4FFB'
   };
 
   function showTab(id, updateHash){
@@ -473,8 +478,8 @@
     });
   });
 
-  const initial = (location.hash || '#about').slice(1);
-  showTab(document.getElementById(initial) ? initial : 'about', false);
+  const initial = (location.hash || '#emily').slice(1);
+  showTab(document.getElementById(initial) ? initial : 'emily', false);
 
   /* Typewriter title: reveal one letter at a time, then leave it be */
   function typewrite(el){
