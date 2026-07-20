@@ -1,220 +1,436 @@
-
 <!DOCTYPE html>
-<html lang="en-us">
-  
-<!-- ######################################################################## -->
-<!--  HEAD START -->
-<!-- ######################################################################## -->
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Hadeel Elayan</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="Hadeel Elayan">
-    <meta name="description" content="Postdoctoral Fellow">
+<meta charset="UTF-8">
+<title>Hadeel Elayan — Postdoctoral Fellow</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Hadeel Elayan">
+<meta name="description" content="Hadeel Elayan — Postdoctoral Fellow, Ultrabroadband Nanonetworking Laboratory, Northeastern University">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	 <link rel="stylesheet" href="bootstrap.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-	    <script src="jquery.min.download.js"></script>
+<style>
+  :root{
+    --paper:#F5F6F4;
+    --paper-raised:#FFFFFF;
+    --ink:#14181B;
+    --ink-muted:#5B6470;
+    --line:#DFE3E1;
+    --violet:#4C4FFB;
+    --teal:#0FB8A6;
+    --sidebar-w:300px;
+  }
 
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
 
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	    <script src="bootstrap.min.download.js"></script>
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
 
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Source Serif 4', Georgia, serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
 
-    <link rel="stylesheet" href="style.css">
-  
-    <script src="/index.js"></script>
+  h1,h2,h3,.display{ font-family:'Space Grotesk', sans-serif; letter-spacing:-0.01em; }
+  .mono{ font-family:'IBM Plex Mono', monospace; }
 
-<!-- ###################################################################### -->
-<!--  HEAD END -->
-<!-- ###################################################################### -->
+  a{ color:var(--violet); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--violet); outline-offset:3px; border-radius:2px; }
+
+  /* ---------- LAYOUT ---------- */
+  .layout{ display:flex; min-height:100vh; }
+
+  .sidebar{
+    width:var(--sidebar-w);
+    flex-shrink:0;
+    position:fixed;
+    top:0; left:0; bottom:0;
+    padding:48px 32px;
+    border-right:1px solid var(--line);
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+  }
+  .portrait{
+    width:104px; height:104px; border-radius:50%;
+    object-fit:cover; border:1px solid var(--line); margin-bottom:20px;
+  }
+  .side-name{ font-size:1.4rem; font-weight:700; margin:0 0 2px; line-height:1.15; }
+  .side-name-ar{ display:block; font-weight:400; color:var(--ink-muted); font-size:0.72em; margin-top:2px; }
+  .side-role{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-muted);
+    line-height:1.6; margin:14px 0 28px;
+  }
+
+  nav.side-nav{ display:flex; flex-direction:column; gap:4px; margin-bottom:32px; }
+  nav.side-nav a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--ink-muted);
+    padding:7px 0; border-left:2px solid transparent; padding-left:12px;
+    text-transform:lowercase; transition:color .15s, border-color .15s;
+  }
+  nav.side-nav a:hover, nav.side-nav a.active{
+    color:var(--violet); border-left-color:var(--violet); text-decoration:none;
+  }
+
+  .side-links{ display:flex; gap:12px; margin-top:auto; padding-top:24px; }
+  .icon-link{
+    width:34px; height:34px; border-radius:50%; border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center; background:var(--paper-raised);
+    transition:border-color .15s, transform .15s;
+  }
+  .icon-link:hover{ border-color:var(--violet); transform:translateY(-2px); text-decoration:none; }
+  .icon-link img{ width:16px; height:16px; object-fit:contain; }
+
+  main.content{
+    margin-left:var(--sidebar-w);
+    max-width:720px;
+    padding:64px 48px 100px;
+  }
+
+  @media (max-width:900px){
+    .layout{ flex-direction:column; }
+    .sidebar{
+      position:static; width:100%; height:auto; border-right:none;
+      border-bottom:1px solid var(--line); padding:32px 24px;
+    }
+    nav.side-nav{ flex-direction:row; flex-wrap:wrap; gap:4px 16px; margin-bottom:20px; }
+    nav.side-nav a{ border-left:none; padding-left:0; border-bottom:2px solid transparent; }
+    nav.side-nav a:hover, nav.side-nav a.active{ border-left-color:transparent; border-bottom-color:var(--violet); }
+    .side-links{ margin-top:0; }
+    main.content{ margin-left:0; max-width:100%; padding:48px 24px 80px; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{ padding:64px 0; }
+  section:first-child{ padding-top:0; }
+  section + section{ border-top:1px solid var(--line); }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--violet);
+    text-transform:lowercase; display:flex; align-items:center; gap:8px; margin-bottom:20px;
+  }
+  .eyebrow::before{ content:"//"; color:var(--teal); }
+  h2.section-title{ font-size:1.55rem; font-weight:600; margin:0 0 14px; }
+  p.section-sub{ color:var(--ink-muted); margin:0 0 32px; }
+
+  h3.sub-title{
+    font-family:'Space Grotesk', sans-serif; font-size:0.9rem; font-weight:600;
+    margin:48px 0 20px; color:var(--ink-muted); text-transform:uppercase; letter-spacing:0.06em;
+  }
+  h3.sub-title:first-of-type{ margin-top:0; }
+
+  section p{ max-width:600px; }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; padding:5px 10px; border-radius:999px;
+    border:1px solid var(--line); color:var(--ink-muted); background:var(--paper-raised);
+  }
+
+  /* timeline (education) */
+  .timeline{ position:relative; padding-left:24px; }
+  .timeline::before{ content:""; position:absolute; left:4px; top:6px; bottom:6px; width:1px; background:var(--line); }
+  .tl-item{ position:relative; margin-bottom:40px; }
+  .tl-item:last-child{ margin-bottom:0; }
+  .tl-item::before{ content:""; position:absolute; left:-24px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--violet); }
+  .tl-date{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--teal); display:block; margin-bottom:6px; }
+  .tl-degree{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.08rem; margin:0 0 6px; }
+  .tl-meta{ color:var(--ink-muted); font-size:0.96rem; margin:0 0 5px; max-width:560px; }
+  .tl-meta:last-child{ margin-bottom:0; }
+
+  /* row list (publications) */
+  .row-list{ list-style:none; margin:0; padding:0; }
+  .row-list li{ display:grid; grid-template-columns:36px 1fr; gap:16px; padding:20px 0; border-bottom:1px solid var(--line); }
+  .row-list li:first-child{ padding-top:0; }
+  .row-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .row-tag{ font-family:'IBM Plex Mono', monospace; color:var(--ink-muted); font-size:0.8rem; padding-top:2px; }
+  .row-list p{ margin:0; max-width:none; }
+  .row-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.02rem; display:block; margin-bottom:6px; }
+  .row-meta{ color:var(--ink-muted); font-size:0.9rem; margin:0; }
+  .see-more{ display:inline-block; margin-top:24px; font-family:'IBM Plex Mono', monospace; font-size:0.82rem; }
+
+  /* project entries */
+  .proj-list{ display:flex; flex-direction:column; }
+  .proj-card{ padding:26px 0; border-bottom:1px solid var(--line); }
+  .proj-list .proj-card:first-child{ padding-top:0; }
+  .proj-list .proj-card:last-child{ border-bottom:none; padding-bottom:0; }
+  .proj-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.08rem; margin:0 0 12px; }
+  .proj-card dl{ margin:0; }
+  .proj-card dt{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em;
+    color:var(--teal); margin:14px 0 5px;
+  }
+  .proj-card dt:first-of-type{ margin-top:0; }
+  .proj-card dd{ margin:0; color:var(--ink-muted); font-size:0.96rem; }
+  .proj-collab{ margin-top:14px; font-size:0.86rem; color:var(--ink-muted); font-style:italic; }
+
+  /* honors */
+  .honor-list{ list-style:none; margin:0; padding:0; }
+  .honor-list li{ display:grid; grid-template-columns:64px 1fr; gap:16px; align-items:baseline; padding:14px 0; border-bottom:1px solid var(--line); }
+  .honor-list li:first-child{ padding-top:0; }
+  .honor-list li:last-child{ border-bottom:none; padding-bottom:0; }
+  .honor-year{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .honor-list p{ margin:0; max-width:none; }
+  @media (max-width:560px){ .honor-list li{ grid-template-columns:1fr; gap:4px; } }
+
+  /* course list */
+  .course-list{ list-style:none; margin:0 0 24px; padding:0; }
+  .course-list li{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink);
+    background:var(--paper-raised); border:1px solid var(--line); border-radius:8px; padding:6px 10px; margin:0 8px 8px 0;
+  }
+  .proposed-course{ border-top:1px solid var(--line); padding-top:24px; margin-top:8px; }
+  .proposed-course .tag{ margin-bottom:12px; display:inline-block; }
+
+  /* service list */
+  .service-list{ list-style:none; margin:0; padding:0; }
+  .service-list li{ padding:14px 0; border-bottom:1px solid var(--line); color:var(--ink-muted); max-width:600px; }
+  .service-list li:first-child{ padding-top:0; }
+  .service-list li:last-child{ border-bottom:none; padding-bottom:0; }
+</style>
 </head>
-
 <body>
-<!-- ###################################################################### -->
-<!--  BANNER -->
-<!-- ###################################################################### -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: rgb(10,40,135);">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span> 
-        </button>
-        <a class="navbar-brand" style="color: white; font-family: 'boldFont'; font-size: 1.5em;">Hadeel Elayan|هديل اعليان</a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#" style="color: white; font-family: 'testFont'; font-size: 1.5em;">Home</a></li>
-			 <li><a href="#Update" style="color: white; font-family: 'testFont'; font-size: 1.5em;">News</a></li>
-            <li><a href="#Recent Publications" style="color: white; font-family: 'testFont'; font-size: 1.5em;">Recent Publications</a></li>
-           <!-- <li><a href="pdf/gcostaCV.pdf" target="_blank" style="color: white; font-family: 'testFont'; font-size: 1.5em;">CV</a></li> -->
-           <!-- <li><a href="pdf/gcostaResume.pdf" target="_blank" style="color: white; font-family: 'testFont'; font-size: 1.5em;">Resume</a></li> -->
-            <li><a href="#Academic Service" style="color: white; font-family: 'testFont'; font-size: 1.5em;">Academic Service</a></li>
-        </ul>
-      </div>
+
+<div class="layout">
+  <aside class="sidebar">
+    <img class="portrait" src="images/Hadeel.jpg" alt="Portrait of Hadeel Elayan">
+    <p class="side-name">Hadeel Elayan<span class="side-name-ar">هديل اعليان</span></p>
+    <p class="side-role">Postdoctoral Fellow, Ultrabroadband Nanonetworking Laboratory — Institute for the Wireless Internet of Things, Northeastern University</p>
+
+    <nav class="side-nav" id="sideNav">
+      <a href="#about">about</a>
+      <a href="#education">education</a>
+      <a href="#research">research</a>
+      <a href="#publications">publications</a>
+      <a href="#honors">honors</a>
+      <a href="#teaching">teaching</a>
+      <a href="#service">service</a>
+      <a href="#contact">contact</a>
+    </nav>
+
+    <div class="side-links">
+      <a class="icon-link" href="https://www.linkedin.com/in/hadeel-elayan/" target="_blank" rel="noopener" aria-label="LinkedIn"><img src="images/LinkedIn.png" alt=""></a>
+      <a class="icon-link" href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><img src="images/GoogleScholar.png" alt=""></a>
+      <a class="icon-link" href="mailto:h.mohammad@northeastern.edu" aria-label="Email"><img src="images/mail.png" alt=""></a>
     </div>
-  </nav>
-    
-  <p style = "margin-bottom: 7em"> </p>
+  </aside>
 
-  <div class="container-fluid">
-<!-- ###################################################################### -->
-<!--  HOME (ABOUT ME) -->
-<!-- ###################################################################### -->
-    <div class="row row-no-gutters">
-      <div class="col-sm-4">
-                   <img src="images/Hadeel.jpg" alt="Hadeel Profile Pic" class="center">
+  <main class="content">
 
-        <p style = "margin-bottom: 8px"> </p>
-        
-        <p class=picText1>Hadeel Elayan</p>
-        <p class=picText2>Postdoctoral Fellow
-         <br>Ultrabroadband Nanonetworking Laboratory
-	<br>Institute for the Wireless Internet of Things 
-            <br>Northeastern University
-        </p>
-        
-        <p style = "margin-bottom: 11px"> </p>
-        
-        <div align="center">
-        <a id="img-linkedIn" href="https://www.linkedin.com/in/hadeel-elayan/" target="_blank"> <img style="width:30px;height:30px;vertical-align:middle" alt="LinkedInLogo" src="images/LinkedIn.png">
-        </a>
-        &nbsp; 
-        <a id="img-googSch" href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank"> <img style="width:33px;height:33px;vertical-align:middle" alt="GoogleScholarLogo" src="images/GoogleScholar.png">
-        </a>
-        &nbsp;
-        <a id="img-envelope" href="mailto:h.mohammad@northeastern.edu"> <img style="width:35px;height:25px;vertical-align:middle" alt="Envelope" src="images/mail.png">
-        </a>
-
-	 </div>
-    
+    <section id="about">
+      <p class="eyebrow">about</p>
+      <h2 class="section-title">Building the physical layer for wireless networks in the body</h2>
+      <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/" target="_blank" rel="noopener">Institute of Wireless Internet of Things</a> at Northeastern University, working under the supervision of Professor <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
+      <p>My research explores the intersection of terahertz (THz) communication systems, electromagnetic wave theory, and nano-bio channel engineering, with a unified goal of building the physical-layer and propagation foundations for next-generation wireless networks that operate inside and around the human body. I develop rigorous channel models, signal processing frameworks, and information-theoretic analyses for THz propagation in heterogeneous biological media, advancing the theoretical foundations of intra-body nanonetworks and 6G wireless system design.</p>
+      <p>A central focus is understanding how THz electromagnetic fields couple to biological macromolecules, particularly proteins, enabling wireless control of molecular processes at the nanoscale. Through the TeraNova platform, I integrate propagation theory with experimental system design to produce scalable, high-efficiency nano-communication and sensing solutions, establishing intelligent cyber-biological interfaces that tightly couple biological processes with communication and computational infrastructures.</p>
+      <div class="tags">
+        <span class="tag">terahertz comms &amp; sensing</span>
+        <span class="tag">nano-bio channel modeling</span>
+        <span class="tag">6G wireless networks</span>
       </div>
-      <div class="col-sm-8">
-        
-        <h2 class="g1">About Me</h2>
-		
-		<p style="font-family: Times New Roman">
-        <p>I am a postdoctoral fellow in the <a href="https://unlab.tech">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/">Institute of Wireless Internet of Things </a> at Northeastern University, working under the supervision of Professor 
-		<a href="https://coe.northeastern.edu/people/jornet-josep-m/">Josep Jornet</a>. 
-		
-		</p>
-        
-               
-        <p style="margin-bottom: 25px"> </p>
-        
-        <h2 class="g1"> Advancing Nano-Bio Systems for Healthcare </h2>
-        
-          <p style="font-family: Times New Roman">
-           My research spans terahertz communication, nano-bio interactions, and advanced sensing systems, with applications
-in wireless communications, bio-computing, and hybrid cyber-biological systems. Bridging theoretical modeling
-with experimental design using the TeraNova platform, I focus on creating systems that enable seamless interaction
-between biological and engineered components. My work aims to advance nano-communication and sensing by
-developing robust, intelligent interfaces that integrate biological processes with computational technologies.
-          
-          <h2 class="g1">Education</h2>
+    </section>
 
-          <ul>
-              <li>
-                  <p><b>Ph.D. in Electrical and Computer Engineering</b>, University of Toronto, September 2023. 
-                      <br>Advisors: Profs. Ravi Adve and Andrew Eckford
-			  <br>Research Featured in: <a href="https://www.ece.utoronto.ca/news/talking-to-proteins-ece-grad-student-uses-electromagnetic-signals-to-interact-with-molecules-in-our-body/"target="_blank"></a></p></li>
-                 <!-- <button class="pdfLink" onclick="window.open('pdf/GCosta_Thesis.pdf','_blank')"><b>PDF</b></button> -->
-              </li>
-              <p style="margin-bottom: 1.5em"> </p>
-
-              <li>
-                  <p><b>M.Sc. (Hons) in Electrical and Computer Engineering</b>, Khalifa University, May 2017.
-                      <br>Advisor: Prof. Raed Shubair
-                     
-                 <!--  <button class="pdfLink" onclick="window.open('pdf/GCosta_Thesis_Undergrad.pdf','_blank')"><b>PDF</b></button> -->
-              </li>
-          </ul>
-
+    <section id="education">
+      <p class="eyebrow">education</p>
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-date">Sept. 2018 – Sept. 2023</span>
+          <p class="tl-degree">Ph.D. in Electrical and Computer Engineering</p>
+          <p class="tl-meta">University of Toronto, Toronto, Canada</p>
+          <p class="tl-meta">Thesis: <i>Controlling Molecular Interactions Using Terahertz Electromagnetic Signals</i></p>
+          <p class="tl-meta">Advisors: Raviraj Adve and Andrew Eckford · Committee: Costas Sarris, Willy Wong, Ervin Sejdic, Sasitharan Balasubramaniam</p>
+          <p class="tl-meta">★ Governor General Gold Medal Award Nomination</p>
         </div>
-
+        <div class="tl-item">
+          <span class="tl-date">Sept. 2015 – May 2017</span>
+          <p class="tl-degree">M.Sc. in Electrical and Computer Engineering <span class="mono" style="font-size:0.7em; color:var(--ink-muted);">(Highest Honors)</span></p>
+          <p class="tl-meta">Khalifa University, Abu Dhabi, UAE</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-date">Sept. 2011 – June 2015</span>
+          <p class="tl-degree">B.Sc. in Telecommunication Engineering <span class="mono" style="font-size:0.7em; color:var(--ink-muted);">(Highest Honors)</span></p>
+          <p class="tl-meta">Khalifa University, Sharjah, UAE</p>
+        </div>
       </div>
-	  
-	  <a class="anchor" id="Update"></a>
-  <hr/>
-<!-- ###################################################################### -->
-<!--  Recent Updates-->
-<!-- ###################################################################### -->
-  <div class="row row-no-gutters"> 
-        
-    <div class="col-sm-4">
-      <h1 class="g1">News</h1>
-    </div>
-    <div class="col-sm-8">
+    </section>
 
-	    
-	 <ul><li><p> I have been selected as one of 10  Rising Stars in Computer Networking and Communications worldwide by <a href="https://n2women.comsoc.org/awards/rising-stars/2024-rising-stars-in-computer-networking-and-communications/" target="_blank"> N2WOMEN: Rising Stars in Networking & Communications, 2024 </a>.</p></li> 
-	     <li><p> I have been selected as one of <a href="https://majarra.com/en/about/news/%D8%A5%D8%B9%D9%84%D8%A7%D9%86-%D9%82%D8%A7%D8%A6%D9%85%D8%A9-%D8%A7%D9%84%D9%81%D8%A7%D8%A6%D8%B2%D9%8A%D9%86-%D8%A8%D8%AC%D8%A7%D8%A6%D8%B2%D8%A9-%22%D9%85%D8%A8%D8%AA%D9%83%D8%B1%D9%88%D9%86-%D8%AF%D9%88%D9%86-35%22-%D9%84%D8%B9%D8%A7%D9%85-2023/" target="_blank"> MIT Technology Review's "Innovators Under 35: Middle East and North Africa (MENA)"</a> for 2023.</p></li>
-	     <li><p> I have successfuly defended my PhD thesis in September 2023.</p></li>
+    <section id="research">
+      <p class="eyebrow">research</p>
+      <h2 class="section-title">Current Research Projects</h2>
+      <div class="proj-list">
+        <div class="proj-card">
+          <p class="proj-title">THz Intra-body Communication, Sensing, and Actuation</p>
+          <dl>
+            <dt>Focus</dt><dd>Physical-layer and propagation modeling for wireless nanonetworks operating inside biological tissue: THz channel characterization, wave–tissue interaction modeling, signal processing, and information-theoretic analysis of intra-body links.</dd>
+            <dt>Impact</dt><dd>Establishes the engineering foundations for implantable nanoscale wireless devices capable of real-time sensing and actuation at the molecular level, with applications in continuous health telemetry, closed-loop therapeutics, and future 6G body-area networks.</dd>
+          </dl>
+        </div>
+        <div class="proj-card">
+          <p class="proj-title">Near-field Wavefront Engineering: Communication and Sensing</p>
+          <dl>
+            <dt>Focus</dt><dd>Exploits near-field electromagnetic effects to unlock spatial degrees of freedom beyond far-field limits, enabling high-capacity THz links and super-resolved sensing.</dd>
+            <dt>Impact</dt><dd>Advances a system-level near-field THz framework applicable to dense wireless infrastructure (AI factories, intra-datacenter links) and sub-millimetre sensing, directly enabling the distributed ISAC architectures targeted by NSF and DEVCOM programmes.</dd>
+          </dl>
+          <p class="proj-collab">In collaboration with Brown University and Rice University (United States)</p>
+        </div>
+        <div class="proj-card">
+          <p class="proj-title">EM Wave Propagation in Hydrogel-based Neural Tissue Scaffolds</p>
+          <dl>
+            <dt>Focus</dt><dd>Investigates electromagnetic wave propagation through riboflavin-crosslinked hydrogel media as a system-level design problem, characterizing how structured illumination shapes the resulting scaffold properties.</dd>
+            <dt>Impact</dt><dd>Establishes structured illumination as an engineering-controlled propagation variable, enabling reproducible scaffolds for neural tissue modeling and new routes for EM-based characterization of engineered biological media.</dd>
+          </dl>
+          <p class="proj-collab">In collaboration with the University of Essex (United Kingdom)</p>
+        </div>
+        <div class="proj-card">
+          <p class="proj-title">Bacterial Intelligence and Biofilm-based Biocomputing</p>
+          <dl>
+            <dt>Focus</dt><dd>Characterizes EM wave propagation through biofilms and harnesses bacterial collective signal-processing for biocomputing and non-invasive infection sensing, integrating gene regulatory neural network models with 6G mMTC system design.</dd>
+            <dt>Impact</dt><dd>Expands molecular communication theory to living computational substrates, with relevance to biocomputing architectures, EM-based detection of antimicrobial-resistant biofilms, and bio-inspired intelligence for 6G network control.</dd>
+          </dl>
+          <p class="proj-collab">In collaboration with the University of Nebraska–Lincoln (United States)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <p class="eyebrow">publications</p>
+      <h2 class="section-title">2026 Publications</h2>
+      <p class="section-sub">The complete, continually updated record is on <a href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      <ul class="row-list">
+        <li><span class="row-tag">J</span><div><span class="row-title">Sensing the Near-Field at Terahertz Frequencies: Structured Beams as the Missing Half of ISAC</span><p class="row-meta">H. Elayan, A. Comas, C. Spindel, K. Mutai, E. Knightly, D. Mittleman, J. M. Jornet · submitted to IEEE Communications Magazine</p></div></li>
+        <li><span class="row-tag">J</span><div><span class="row-title">Nano-Bio Systems for Intra-Body Sensing, Actuation, and Communication in the Terahertz Band and Beyond</span><p class="row-meta">K. Skos, H. Elayan, S. Elmaadawy, P. Kulakowski, J. M. Jornet · IEEE Communications Surveys &amp; Tutorials, vol. 28, pp. 6354–6383, 2026</p></div></li>
+        <li><span class="row-tag">J</span><div><span class="row-title">Integrating Biological Intelligence into 6G mMTC Systems using Gene Regulatory Neural Networks</span><p class="row-meta">H. Elayan, S. Somathilak, J. M. Jornet, S. Balasubramaniam · npj Wireless Technology, 2026 (accepted)</p></div></li>
+        <li><span class="row-tag">C</span><div><span class="row-title">Modeling Airy Beam Propagation for Intra-body Nanoscale Communication</span><p class="row-meta">H. Elayan, J. Jornet · IEEE ICC 2026, Glasgow, Scotland</p></div></li>
       </ul>
-        
-    </div>
-    
-  </div>
+      <a class="see-more" href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">→ full publication list on Google Scholar</a>
+    </section>
 
-	  
-        <a class="anchor" id="Recent Publications"></a>
-      <hr/>
-
-<!-- ###################################################################### -->
-<!--  Recent Publications -->
-<!-- ###################################################################### -->
- <div class="row row-no-gutters"> 
-        
-    <div class="col-sm-4">
-      <h1 class="g1">Recent Publications</h1>
-    </div>
-    <div class="col-sm-8">
-      <ul><li><p>Paper titled "Anisotropic Wave Propagation in Intra-body Communication Systems Using Mathieu Beams" has been accepted in the <a href="https://2025.apsursi.org/" target="_blank">IEEE International Symposium on Antennas & Propagation,</a> in Ottawa, Canada (July 13-July 18, 2025)</p></li>
-	      <li><p>Paper titled "Near-Field Intra-body Optical Communication: Leveraging the Power of Bessel Beams" has been accepted in the <a href="https://www.eucap2025.org/" target="_blank">19th European Conference on Antennas and Propagation,</a> in Stockholm, Sweden (March 30-April 4, 2025)</p></li>
-	      <li><p>Paper titled <a href="https://ieeexplore.ieee.org/abstract/document/10750495" target="_blank">"Mobile Terahertz Communication and Sensing Systems: A Future Look",</a> has been published in the  IEEE Vehicular Technology Magazine , Nov. 2024 !</p></li>
-                    
+    <section id="honors">
+      <p class="eyebrow">honors</p>
+      <h2 class="section-title">Honors, Grants &amp; Awards</h2>
+      <ul class="honor-list">
+        <li><span class="honor-year">2026</span><p>Selected as an IEEE Antennas and Propagation Society Young Professional Ambassador</p></li>
+        <li><span class="honor-year">2025</span><p>Selected as a Rising Star for the Women in Engineering Workshop in the Asia Dean Forum</p></li>
+        <li><span class="honor-year">2025</span><p>Recipient of the Mojgan Daneshmand Grant, IEEE Antennas and Propagation Society</p></li>
+        <li><span class="honor-year">2024</span><p>Selected as an N2Women Rising Star in Networking and Communications by IEEE ComSoc</p></li>
+        <li><span class="honor-year">2023</span><p>Selected as Innovators Under 35 MENA Award recipient, MIT Technology Review Arabia</p></li>
+        <li><span class="honor-year">2023</span><p>School of Graduate Studies Conference Travel Grant, University of Toronto</p></li>
+        <li><span class="honor-year">2022</span><p>Introduced by the Principal of Massey College at the High Table Celebrating Women Leaders in Canada</p></li>
+        <li><span class="honor-year">2022</span><p>Doctoral Completion Award, University of Toronto — $10,000</p></li>
+        <li><span class="honor-year">2022</span><p>Selected as an EECS Rising Star, The University of Texas at Austin</p></li>
+        <li><span class="honor-year">2022</span><p>Appointed Junior Fellow, Massey College, University of Toronto</p></li>
+        <li><span class="honor-year">2022</span><p>Mitacs Globalink Research Award — $6,000</p></li>
+        <li><span class="honor-year">2022</span><p>Nominated for the Teaching Assistant Excellence Award, University of Toronto</p></li>
+        <li><span class="honor-year">2021</span><p>Research Expansion Grant, Photonics Innovation Center, University of Toronto — $10,000</p></li>
+        <li><span class="honor-year">2020</span><p>IEEE Toronto Section Appreciation of Service Award</p></li>
       </ul>
-        
-    </div>
-    
-  </div>
-	  
 
-        <a class="anchor" id="Academic Service"></a>
-      <hr/>
+      <h3 class="sub-title">Scholarships &amp; Fellowships</h3>
+      <ul class="honor-list">
+        <li><span class="honor-year">2024</span><p>NSERC Postdoctoral Fellowship — $70,000 × 2</p></li>
+        <li><span class="honor-year">2023</span><p>Professor V. L. Henderson &amp; M. Bassett Research Fellowship in Electrical Engineering, University of Toronto — $8,200</p></li>
+        <li><span class="honor-year">2023</span><p>Viola Carless Smith Research Fellowship in Electrical Engineering, University of Toronto — $10,000</p></li>
+        <li><span class="honor-year">2019</span><p>Ontario Graduate Scholarship for excellence in graduate studies (two consecutive cycles) — $10,000 × 2</p></li>
+        <li><span class="honor-year">2018</span><p>Scholar at Risk Fellowship, Massey College, University of Toronto — $10,000</p></li>
+        <li><span class="honor-year">2018</span><p>The Edward Rogers Scholarship, University of Toronto — Full funding</p></li>
+        <li><span class="honor-year">2011–15</span><p>Khalifa University Scholarship, BSc and MSc in Electrical Engineering — Full funding</p></li>
+      </ul>
+    </section>
 
-<!-- ###################################################################### -->
-<!-- Academic Service  -->
-<!-- ###################################################################### -->
-  <div class="row row-no-gutters"> 
-        
-    <div class="col-sm-4">
-      
-      <h1 class="g1">Academic Service</h1>
-	     </div>
-    <div class="col-sm-8">
-     <ul><li> <p> Guest Editor for special issue on Interconnecting Molecular and Terahertz Communications for Future 6G/7G Networks, IEEE Transactions on Molecular, Biological, and Multi-Scale Communications, 2025.</p></li>
-	      <li><p>Serving as a TPC Co-Chair for the 11th ACM International Conference on
-Nanoscale Computing and Communication in Milan, Italy, October 2024.</p></li>
-          <li><p>Serving as a TPC member for IEEE CCNC (Las Vegas- Jan.2025), IEEE MILCOM (Washington, Oct. 2024), and IEEE GLOBECOM  (Cape Town, Dec. 2024).</p></li>         
-      </ul>  
-        
-    </div>
-    
-  </div>
-    
-<!-- ###################################################################### -->
-<!--  BODY END -->
-<!-- ###################################################################### -->
- <script  src="./script.js"></script>
+    <section id="teaching">
+      <p class="eyebrow">teaching</p>
+      <h2 class="section-title">Teaching</h2>
+
+      <h3 class="sub-title">Courses Taught</h3>
+      <p class="tl-meta" style="margin-bottom:8px;"><b style="color:var(--ink); font-family:'Space Grotesk',sans-serif;">University of Toronto</b> — Lecturer, Sept. 2018 – Sept. 2023</p>
+      <ul class="course-list">
+        <li>Detection and Estimation Theory (ECE1521)</li>
+        <li>Probability and Statistics (ECE 286)</li>
+      </ul>
+      <p class="tl-meta" style="margin-bottom:8px;"><b style="color:var(--ink); font-family:'Space Grotesk',sans-serif;">Khalifa University</b> — Teaching Assistant &amp; Lab Instructor, Sept. 2015 – 2017</p>
+      <ul class="course-list">
+        <li>Engineering Design and Innovation (ENGR 111)</li>
+        <li>Digital Communication (ECCE 362)</li>
+        <li>Communication Systems (ECCE 360)</li>
+        <li>Signal Processing (ECCE 302)</li>
+        <li>Applied Electromagnetics (ECCE 320)</li>
+      </ul>
+
+      <div class="proposed-course">
+        <span class="tag">graduate level · in preparation</span>
+        <p class="proj-title" style="margin-bottom:8px;">Terahertz Communication Systems: Theory, Modeling, and Applications</p>
+        <p class="tl-meta">A graduate course covering the theoretical and engineering foundations of THz wireless systems: channel modeling (molecular absorption, scattering, near- and far-field propagation), signal processing and information theory for THz links, antenna and aperture systems, structured beams, ISAC frameworks, and applications in body-area nanonetworks and 6G infrastructure. Prerequisites: communication theory and electromagnetic fields.</p>
+      </div>
+    </section>
+
+    <section id="service">
+      <p class="eyebrow">academic service</p>
+      <h2 class="section-title">Service &amp; Outreach</h2>
+      <ul class="service-list">
+        <li>Session Chair, IEEE International Microwave and Antenna Symposium (IMAS), Jeddah, 2026.</li>
+        <li>TPC Co-Chair, 13th ACM International Conference on Nanoscale Computing and Communication, St. John's, Canada, September 2026.</li>
+        <li>Student Design Competition Chair, IEEE Wireless Power Technology Conference and Expo, Halifax, Nova Scotia, June 2026.</li>
+        <li>Session Chair, IEEE International Conference on Communications, Satellite and Space Communications track — Beamforming and Physical Layer Design, Glasgow, May 2026.</li>
+        <li>Track Chair for Signal Processing in Wireless Communication, IEEE Vehicular Technology Conference, Chengdu, China, October 2025.</li>
+        <li>Session Chair, IEEE EuCAP — Propagation for Body Network and Bio Applications, Stockholm, March 2025.</li>
+        <li>Guest Editor, special issue on Interconnecting Molecular and Terahertz Communications for Future 6G/7G Networks, IEEE Transactions on Molecular, Biological, and Multi-Scale Communications, 2025.</li>
+        <li>TPC member: IEEE CCNC (Las Vegas, Jan. 2025), IEEE MILCOM (Washington, Oct. 2024), IEEE GLOBECOM (Cape Town, Dec. 2024).</li>
+        <li>TPC Co-Chair, 11th ACM International Conference on Nanoscale Computing and Communication, Milan, Italy, October 2024.</li>
+        <li>Panel Organizer, "Nanonetworking: Quo Vadis?", IEEE ICC, Denver, USA, June 2024.</li>
+        <li>Participant, Mathematical Models in Biology: From Information Theory to Thermodynamics, Banff International Research Station, August 2022.</li>
+        <li>Chair, IEEE Toronto Section ComSoc Chapter — including the IEEE Inter-Society Distinguished Lecturer Day (2025), IEEE Toronto ComSoc Distinguished Lectures, the "Moving the Dial" Women in STEM panel for International Women in Engineering Day, and the IEEE Toronto 5G Summit.</li>
+        <li>Reviewer: IEEE TMBMC, IEEE TWC, IEEE TNB, IEEE VT.</li>
+      </ul>
+
+      <h3 class="sub-title">Invited Talks &amp; Podcasts</h3>
+      <ul class="service-list">
+        <li>Lightning talk, "Quantum Biology Forum," United Therapeutics headquarters, April 2026.</li>
+        <li>Invited talk, <a href="https://events.vtools.ieee.org/m/406552" target="_blank" rel="noopener">"Talking to Proteins: Decoding the Nano-World Using THz-EM Signals"</a>, Wayne State University &amp; IEEE WIE, February 2024.</li>
+        <li>Featured on the <a href="https://wwest-cwse.ca/episode-18-diverse-women-in-stem-blending-health-nanotechnology-w-hadeel-mohammed/" target="_blank" rel="noopener">Westcoast Women in Engineering, Science &amp; Technology podcast</a> on THz-induced protein interactions.</li>
+        <li>Panelist, <a href="https://agakhanmuseum.org/whats-on/global-conversations-women-and-girls-in-science/" target="_blank" rel="noopener">Women and Girls in Science</a>, Aga Khan Museum, February 2023.</li>
+        <li>Invited talk, Bioelectrodynamics Webinar Series (Prof. Michal Cifra) — <a href="https://www.youtube.com/watch?v=NFlv-uJHRdM" target="_blank" rel="noopener">THz effects on proteins</a>, January 2023.</li>
+        <li>NMIN HQP Research Presentations Series (10th Round), August 2022; awarded NMIN Travel Award.</li>
+      </ul>
+
+      <h3 class="sub-title">Press Coverage</h3>
+      <p class="tl-meta">MIT Technology Review Arabia · University of Toronto News</p>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">contact</p>
+      <h2 class="section-title">Get in touch</h2>
+      <p>For research, collaborations, or reviewing, reach me at <a href="mailto:h.mohammad@northeastern.edu">h.mohammad@northeastern.edu</a>, or connect via the links in the sidebar.</p>
+      <p class="mono" style="font-size:0.78rem; color:var(--ink-muted); margin-top:32px;">© <span id="year"></span> Hadeel Elayan</p>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const links = document.querySelectorAll('#sideNav a');
+  const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+
+  const setActive = () => {
+    let current = sections[0];
+    const pos = window.scrollY + 120;
+    sections.forEach(sec => { if (sec && sec.offsetTop <= pos) current = sec; });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current.id));
+  };
+  document.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+
 </body>
-
-
+</html>
