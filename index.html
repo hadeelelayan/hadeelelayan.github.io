@@ -150,6 +150,15 @@
   }
   .typewriter.done{ border-right:2px solid transparent; }
 
+  .emily-title{
+    font-size:2.1rem; font-weight:700; letter-spacing:0.06em;
+    margin:36px 0 20px; color:var(--accent); transition:color .2s;
+  }
+  .emily-img{
+    display:block; width:100%; max-width:640px; border-radius:12px;
+    border:1px solid var(--line); margin:0 0 32px;
+  }
+
   /* timeline (education) */
   .timeline{ position:relative; padding-left:24px; }
   .timeline::before{ content:""; position:absolute; left:4px; top:6px; bottom:6px; width:1px; background:var(--line); }
@@ -242,8 +251,11 @@
 
     <section id="about" class="active">
       <p class="eyebrow">about</p>
-      <h2 class="section-title"><span class="typewriter" id="mainTitle" data-text="Talking to Proteins, One Terahertz Wave at a Time"></span></h2>
       <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://wiot.northeastern.edu/" target="_blank" rel="noopener">Institute of Wireless Internet of Things</a> at Northeastern University, working under the supervision of Professor <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
+
+      <h3 class="emily-title"><span class="typewriter" id="emilyTitle" data-text="EMILY"></span></h3>
+      <img class="emily-img" src="images/emily-diagram.png" alt="EMILY — Electromagnetic Intelligence for Living and Physical Systems: a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
+
       <p>My research explores the intersection of terahertz (THz) communication systems, electromagnetic wave theory, and nano-bio channel engineering, with a unified goal of building the physical-layer and propagation foundations for next-generation wireless networks that operate inside and around the human body. I develop rigorous channel models, signal processing frameworks, and information-theoretic analyses for THz propagation in heterogeneous biological media, advancing the theoretical foundations of intra-body nanonetworks and 6G wireless system design.</p>
       <p>A central focus is understanding how THz electromagnetic fields couple to biological macromolecules, particularly proteins, enabling wireless control of molecular processes at the nanoscale. Through the TeraNova platform, I integrate propagation theory with experimental system design to produce scalable, high-efficiency nano-communication and sensing solutions, establishing intelligent cyber-biological interfaces that tightly couple biological processes with communication and computational infrastructures.</p>
       <div class="tags">
@@ -476,7 +488,7 @@
     };
     step();
   }
-  const titleEl = document.getElementById('mainTitle');
+  const titleEl = document.getElementById('emilyTitle');
   if (titleEl) typewrite(titleEl);
 </script>
 
