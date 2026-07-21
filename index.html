@@ -168,6 +168,33 @@
   .tayf-next{
     display:inline-block; margin-top:28px; font-family:'IBM Plex Mono', monospace; font-size:0.86rem;
   }
+
+  /* journey map (Abu Dhabi -> Toronto -> Boston) */
+  .journey-map{
+    position:relative; display:flex; justify-content:space-between;
+    margin:28px 0 36px; padding-top:5px; max-width:600px;
+  }
+  .journey-map::before{
+    content:""; position:absolute; top:10px; left:6%; right:6%; height:1px; background:var(--line);
+  }
+  .journey-stop{ position:relative; flex:1; text-align:center; z-index:1; }
+  .journey-dot{
+    display:block; width:9px; height:9px; border-radius:50%;
+    background:var(--accent); margin:0 auto 12px; transition:background .2s;
+  }
+  .journey-city{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.95rem; margin:0 0 3px; }
+  .journey-inst{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--ink-muted); margin:0; }
+
+  @media (max-width:600px){
+    .journey-map{ flex-direction:column; align-items:flex-start; gap:24px; padding-top:0; }
+    .journey-map::before{ content:none; }
+    .journey-stop{ text-align:left; padding-left:22px; width:100%; }
+    .journey-stop::after{
+      content:""; position:absolute; left:4px; top:14px; bottom:-24px; width:1px; background:var(--line);
+    }
+    .journey-stop:last-child::after{ display:none; }
+    .journey-dot{ position:absolute; left:0; top:2px; margin:0; }
+  }
   .tayf-figure{ text-align:center; margin:0 0 8px; }
   .tayf-img{
     display:block; width:100%; max-width:560px; border-radius:12px;
@@ -279,8 +306,29 @@
     <section id="about">
       <p class="eyebrow">about</p>
       <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://coe.northeastern.edu/coe-research/research-centers-institutes/institute-for-intelligent-networked-systems/" target="_blank" rel="noopener">Institute for Intelligent Networked Systems</a> at Northeastern University, working with <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a> as my advisor.</p>
-      <p>My path took me from Abu Dhabi to Toronto to Boston. I've always been fascinated by the nanoscale, and during my Ph.D. I found the question that still drives my work: can we talk to proteins — actuating them using terahertz signals?</p>
-      <p>That question kept expanding — from single proteins to whole networks, from communication to sensing and control. TAYF is what it grew into: a framework for using electromagnetic waves to sense, model, and control systems from proteins to 6G networks. It's the throughline connecting my papers, projects, and collaborations into one research vision.</p>
+      <p>My path took me from Abu Dhabi to Toronto to Boston.</p>
+
+      <div class="journey-map">
+        <div class="journey-stop">
+          <span class="journey-dot"></span>
+          <p class="journey-city">Abu Dhabi</p>
+          <p class="journey-inst">Khalifa University</p>
+        </div>
+        <div class="journey-stop">
+          <span class="journey-dot"></span>
+          <p class="journey-city">Toronto</p>
+          <p class="journey-inst">University of Toronto</p>
+        </div>
+        <div class="journey-stop">
+          <span class="journey-dot"></span>
+          <p class="journey-city">Boston</p>
+          <p class="journey-inst">Northeastern University</p>
+        </div>
+      </div>
+
+      <p>My interest in the nanoscale started developing in my senior undergraduate year as I better understood communication systems. During my Ph.D., I raised an intriguing question: what if we can talk to proteins — actuating them using terahertz signals?</p>
+      <p>That question kept expanding: from single proteins to whole networks, from communication to sensing and control.</p>
+      <p>TAYF is what it grew into: a framework for using electromagnetic waves to sense, model, and control systems from proteins to 6G networks. It's the throughline connecting my papers, projects, and collaborations into one research vision.</p>
       <p class="tl-meta">Along the way, this work has been recognized by MIT Technology Review's Innovators Under 35 and IEEE ComSoc's N2Women Rising Stars program.</p>
       <div class="tags">
         <span class="tag tag-violet">terahertz comms &amp; sensing</span>
