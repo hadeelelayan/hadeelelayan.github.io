@@ -138,6 +138,12 @@
   h3.sub-title:first-of-type{ margin-top:0; }
 
   section p{ max-width:600px; text-align:justify; hyphens:auto; }
+  .pull-quote{
+    font-family:'Space Grotesk', sans-serif; font-style:normal; font-weight:600;
+    font-size:1.15rem; color:var(--accent); text-align:left; max-width:560px;
+    border-left:2px solid var(--accent); padding-left:20px; margin:28px 0; line-height:1.5;
+    transition:color .2s, border-color .2s;
+  }
 
   .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
   .tag{
@@ -166,9 +172,19 @@
     font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-muted);
     font-style:italic; margin:-4px 0 20px;
   }
+  .tayf-mission{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.3rem;
+    color:var(--accent); margin:2px 0 14px; line-height:1.35; max-width:520px;
+    transition:color .2s;
+  }
+  .manifesto-open{
+    font-family:'Source Serif 4', Georgia, serif; font-size:1.05rem; line-height:1.85;
+    text-align:left; color:var(--ink); margin:0 0 24px; max-width:500px;
+  }
   .tayf-next{
     display:inline-block; margin-top:28px; font-family:'IBM Plex Mono', monospace; font-size:0.86rem;
   }
+  .tayf-inline-link{ font-family:'IBM Plex Mono', monospace; font-size:0.86rem; white-space:nowrap; }
 
   /* journey map (Abu Dhabi -> Toronto -> Boston) */
   .journey-map{
@@ -314,11 +330,17 @@
     <section id="tayf" class="active">
       <p class="eyebrow">tayf</p>
       <h2 class="tayf-title"><span class="typewriter" id="tayfTitle" data-text="Welcome to TAYF (طيف)"></span></h2>
+      <p class="tayf-mission">Engineering the Electromagnetic Interface to Life.</p>
       <p class="tayf-gloss">tayf — Arabic for spectrum</p>
-      <p class="tayf-subtitle">My Multidisciplinary Research Vision Exploring High Frequency Electromagnetic Waves from Physical Modeling to Intelligence.</p>
       <div class="tayf-figure">
         <img class="tayf-img" src="images/tayf-diagram.png" alt="TAYF — a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
       </div>
+
+      <h3 class="subsection-title">Why TAYF?</h3>
+      <p class="manifesto-open">Nature already communicates through physics.<br>Cells exchange signals.<br>Proteins change conformation.<br>Neurons transmit information.<br>Wireless systems propagate electromagnetic waves.</p>
+      <p>Today, these disciplines remain largely disconnected. TAYF aims to unite them.</p>
+      <p>By combining physics, bioelectromagnetics, communication theory, and artificial intelligence, TAYF aims to develop electromagnetic technologies capable of sensing, understanding, and eventually interacting with living systems across scales.</p>
+
       <a href="#about" class="tayf-next">→ Read more about me</a>
     </section>
 
@@ -346,9 +368,10 @@
         <span class="journey-traveler"></span>
       </div>
 
-      <p>My interest in the nanoscale started developing in my senior undergraduate year as I better understood communication systems. During my Ph.D., I raised an intriguing question: what if we can talk to proteins — actuating them using terahertz signals?</p>
-      <p>That question kept expanding: from single proteins to whole networks, from communication to sensing and control.</p>
-      <p>TAYF is what it grew into: a framework for using electromagnetic waves to sense, model, and control systems from proteins to 6G networks. It's the throughline connecting my papers, projects, and collaborations into one research vision.</p>
+      <p>My fascination with the nanoscale began during my senior undergraduate year as I developed a deeper understanding of communication systems. During my Ph.D., one question kept returning:</p>
+      <p class="pull-quote">Can electromagnetic waves communicate with biology — not just carry information between devices, but directly interact with proteins and living systems?</p>
+      <p>Exploring that question led me into the world of bioelectromagnetics. What began as an investigation of terahertz interactions with individual proteins gradually evolved into a broader pursuit spanning sensing, actuation, communication, and intelligence across biological and engineered systems.</p>
+      <p>TAYF is the culmination of that journey — a research vision dedicated to engineering an electromagnetic interface to life. <a href="#tayf" class="tayf-inline-link">Read more about TAYF →</a></p>
       <p class="tl-meta">Along the way, this work has been recognized by MIT Technology Review's Innovators Under 35 and IEEE ComSoc's N2Women Rising Stars program.</p>
       <div class="tags">
         <span class="tag tag-violet">terahertz comms &amp; sensing</span>
@@ -557,11 +580,15 @@
     });
   });
 
-  document.querySelectorAll('.tayf-next').forEach(a => {
-    a.addEventListener('click', (e) => {
-      e.preventDefault();
-      showTab(a.getAttribute('href').slice(1), true);
-    });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    if (a.closest('#sideNav')) return;
+    const id = a.getAttribute('href').slice(1);
+    if (document.querySelector('.content-inner > #' + CSS.escape(id))) {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showTab(id, true);
+      });
+    }
   });
 
   const initial = (location.hash || '#tayf').slice(1);
