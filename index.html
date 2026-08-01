@@ -153,6 +153,7 @@
   .tag-violet{ color:var(--violet); border-color:var(--violet); background:rgba(76,79,251,0.06); }
   .tag-teal{ color:var(--teal); border-color:var(--teal); background:rgba(15,184,166,0.07); }
   .tag-blue{ color:var(--blue); border-color:var(--blue); background:rgba(59,111,224,0.07); }
+  .tag-magenta{ color:var(--magenta); border-color:var(--magenta); background:rgba(178,58,130,0.07); }
 
   .typewriter{
     display:inline-block; border-right:2px solid var(--accent);
@@ -257,10 +258,22 @@
 
   /* project entries */
   .proj-list{ display:flex; flex-direction:column; }
-  .proj-card{ padding:26px 0; border-bottom:1px solid var(--line); }
-  .proj-list .proj-card:first-child{ padding-top:0; }
-  .proj-list .proj-card:last-child{ border-bottom:none; padding-bottom:0; }
-  .proj-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.08rem; margin:0 0 12px; }
+  .proj-card{
+    padding:26px 20px 26px 22px; border-bottom:1px solid var(--line);
+    border-left:3px solid var(--line); border-radius:0 8px 8px 0;
+    transition:background .15s, border-left-color .15s;
+  }
+  .proj-list .proj-card:first-child{ padding-top:22px; }
+  .proj-list .proj-card:last-child{ border-bottom:none; }
+  .proj-card:hover{ background:rgba(0,0,0,0.015); }
+  .proj-card.proj-c1{ border-left-color:var(--violet); }
+  .proj-card.proj-c2{ border-left-color:var(--teal); }
+  .proj-card.proj-c3{ border-left-color:var(--blue); }
+  .proj-card.proj-c4{ border-left-color:var(--magenta); }
+  .proj-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:14px; }
+  .proj-index{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .proj-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.08rem; margin:0; }
+  .proj-tags{ margin:0 0 16px; }
   .proj-card dl{ margin:0; }
   .proj-card dt{
     font-family:'IBM Plex Mono', monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.05em;
@@ -412,31 +425,51 @@
       <p class="eyebrow">research</p>
       <h2 class="section-title">Current Research Projects</h2>
       <div class="proj-list">
-        <div class="proj-card">
-          <p class="proj-title">THz Intra-body Communication, Sensing, and Actuation</p>
+        <div class="proj-card proj-c1">
+          <div class="proj-head"><span class="proj-index">01</span><p class="proj-title">THz Intra-body Communication, Sensing, and Actuation</p></div>
+          <div class="tags proj-tags">
+            <span class="tag tag-violet">terahertz</span>
+            <span class="tag tag-violet">intra-body</span>
+            <span class="tag tag-violet">sensing &amp; actuation</span>
+          </div>
           <dl>
             <dt>Focus</dt><dd>Physical-layer and propagation modeling for wireless nanonetworks operating inside biological tissue: THz channel characterization, wave–tissue interaction modeling, signal processing, and information-theoretic analysis of intra-body links.</dd>
             <dt>Impact</dt><dd>Establishes the engineering foundations for implantable nanoscale wireless devices capable of real-time sensing and actuation at the molecular level, with applications in continuous health telemetry, closed-loop therapeutics, and future 6G body-area networks.</dd>
           </dl>
         </div>
-        <div class="proj-card">
-          <p class="proj-title">Near-field Wavefront Engineering: Communication and Sensing</p>
+        <div class="proj-card proj-c2">
+          <div class="proj-head"><span class="proj-index">02</span><p class="proj-title">Near-field Wavefront Engineering: Communication and Sensing</p></div>
+          <div class="tags proj-tags">
+            <span class="tag tag-teal">near-field</span>
+            <span class="tag tag-teal">structured beams</span>
+            <span class="tag tag-teal">ISAC</span>
+          </div>
           <dl>
             <dt>Focus</dt><dd>Exploits near-field electromagnetic effects to unlock spatial degrees of freedom beyond far-field limits, enabling high-capacity THz links and super-resolved sensing.</dd>
             <dt>Impact</dt><dd>Advances a system-level near-field THz framework applicable to dense wireless infrastructure (AI factories, intra-datacenter links) and sub-millimetre sensing, directly enabling the distributed ISAC architectures targeted by NSF and DEVCOM programmes.</dd>
           </dl>
           <p class="proj-collab">In collaboration with Brown University and Rice University (United States)</p>
         </div>
-        <div class="proj-card">
-          <p class="proj-title">EM Wave Propagation in Hydrogel-based Neural Tissue Scaffolds</p>
+        <div class="proj-card proj-c3">
+          <div class="proj-head"><span class="proj-index">03</span><p class="proj-title">EM Wave Propagation in Hydrogel-based Neural Tissue Scaffolds</p></div>
+          <div class="tags proj-tags">
+            <span class="tag tag-blue">hydrogel</span>
+            <span class="tag tag-blue">neural tissue</span>
+            <span class="tag tag-blue">structured illumination</span>
+          </div>
           <dl>
             <dt>Focus</dt><dd>Investigates electromagnetic wave propagation through riboflavin-crosslinked hydrogel media as a system-level design problem, characterizing how structured illumination shapes the resulting scaffold properties.</dd>
             <dt>Impact</dt><dd>Establishes structured illumination as an engineering-controlled propagation variable, enabling reproducible scaffolds for neural tissue modeling and new routes for EM-based characterization of engineered biological media.</dd>
           </dl>
           <p class="proj-collab">In collaboration with the University of Essex (United Kingdom)</p>
         </div>
-        <div class="proj-card">
-          <p class="proj-title">Bacterial Intelligence and Biofilm-based Biocomputing</p>
+        <div class="proj-card proj-c4">
+          <div class="proj-head"><span class="proj-index">04</span><p class="proj-title">Bacterial Intelligence and Biofilm-based Biocomputing</p></div>
+          <div class="tags proj-tags">
+            <span class="tag tag-magenta">biofilm</span>
+            <span class="tag tag-magenta">biocomputing</span>
+            <span class="tag tag-magenta">6G mMTC</span>
+          </div>
           <dl>
             <dt>Focus</dt><dd>Characterizes EM wave propagation through biofilms and harnesses bacterial collective signal-processing for biocomputing and non-invasive infection sensing, integrating gene regulatory neural network models with 6G mMTC system design.</dd>
             <dt>Impact</dt><dd>Expands molecular communication theory to living computational substrates, with relevance to biocomputing architectures, EM-based detection of antimicrobial-resistant biofilms, and bio-inspired intelligence for 6G network control.</dd>
