@@ -270,8 +270,12 @@
   .proj-card.proj-c2{ border-left-color:var(--teal); }
   .proj-card.proj-c3{ border-left-color:var(--blue); }
   .proj-card.proj-c4{ border-left-color:var(--magenta); }
-  .proj-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:14px; }
-  .proj-index{ font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .proj-head{ display:flex; align-items:center; gap:14px; margin-bottom:14px; }
+  .proj-icon{ flex-shrink:0; width:36px; height:36px; display:flex; align-items:center; justify-content:center; }
+  .proj-card.proj-c1 .proj-icon{ color:var(--violet); }
+  .proj-card.proj-c2 .proj-icon{ color:var(--teal); }
+  .proj-card.proj-c3 .proj-icon{ color:var(--blue); }
+  .proj-card.proj-c4 .proj-icon{ color:var(--magenta); }
   .proj-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.08rem; margin:0; }
   .proj-tags{ margin:0 0 16px; }
   .proj-card dl{ margin:0; }
@@ -426,7 +430,17 @@
       <h2 class="section-title">Current Research Projects</h2>
       <div class="proj-list">
         <div class="proj-card proj-c1">
-          <div class="proj-head"><span class="proj-index">01</span><p class="proj-title">THz Intra-body Communication, Sensing, and Actuation</p></div>
+          <div class="proj-head">
+            <span class="proj-icon">
+              <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                <circle cx="30" cy="20" r="3" fill="currentColor" stroke="none"/>
+                <path d="M20 20a6 6 0 0 1 6-6" stroke-linecap="round"/>
+                <path d="M16 20a10 10 0 0 1 10-10" stroke-linecap="round"/>
+                <path d="M12 20a14 14 0 0 1 14-14" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="proj-title">THz Intra-body Communication, Sensing, and Actuation</p>
+          </div>
           <div class="tags proj-tags">
             <span class="tag tag-violet">terahertz</span>
             <span class="tag tag-violet">intra-body</span>
@@ -438,7 +452,17 @@
           </dl>
         </div>
         <div class="proj-card proj-c2">
-          <div class="proj-head"><span class="proj-index">02</span><p class="proj-title">Near-field Wavefront Engineering: Communication and Sensing</p></div>
+          <div class="proj-head">
+            <span class="proj-icon">
+              <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                <line x1="8" y1="8" x2="8" y2="32" stroke-linecap="round"/>
+                <path d="M12 12 Q22 20 12 28"/>
+                <path d="M16 14 Q24 20 16 26"/>
+                <circle cx="30" cy="20" r="1.8" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <p class="proj-title">Near-field Wavefront Engineering: Communication and Sensing</p>
+          </div>
           <div class="tags proj-tags">
             <span class="tag tag-teal">near-field</span>
             <span class="tag tag-teal">structured beams</span>
@@ -451,7 +475,15 @@
           <p class="proj-collab">In collaboration with Brown University and Rice University (United States)</p>
         </div>
         <div class="proj-card proj-c3">
-          <div class="proj-head"><span class="proj-index">03</span><p class="proj-title">EM Wave Propagation in Hydrogel-based Neural Tissue Scaffolds</p></div>
+          <div class="proj-head">
+            <span class="proj-icon">
+              <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M20 6c8 0 12 6 12 13s-4 15-12 15S8 26 8 19 12 6 20 6Z"/>
+                <path d="M13 16h14M13 20h14M13 24h10" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <p class="proj-title">EM Wave Propagation in Hydrogel-based Neural Tissue Scaffolds</p>
+          </div>
           <div class="tags proj-tags">
             <span class="tag tag-blue">hydrogel</span>
             <span class="tag tag-blue">neural tissue</span>
@@ -464,7 +496,19 @@
           <p class="proj-collab">In collaboration with the University of Essex (United Kingdom)</p>
         </div>
         <div class="proj-card proj-c4">
-          <div class="proj-head"><span class="proj-index">04</span><p class="proj-title">Bacterial Intelligence and Biofilm-based Biocomputing</p></div>
+          <div class="proj-head">
+            <span class="proj-icon">
+              <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M10 12L20 18M26 8L20 18M30 24L20 18M14 28L20 18" stroke-linecap="round"/>
+                <circle cx="10" cy="12" r="2.4" fill="currentColor" stroke="none"/>
+                <circle cx="26" cy="8" r="2.4" fill="currentColor" stroke="none"/>
+                <circle cx="30" cy="24" r="2.4" fill="currentColor" stroke="none"/>
+                <circle cx="14" cy="28" r="2.4" fill="currentColor" stroke="none"/>
+                <circle cx="20" cy="18" r="2.4" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <p class="proj-title">Bacterial Intelligence and Biofilm-based Biocomputing</p>
+          </div>
           <div class="tags proj-tags">
             <span class="tag tag-magenta">biofilm</span>
             <span class="tag tag-magenta">biocomputing</span>
