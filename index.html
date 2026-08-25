@@ -103,7 +103,10 @@
     justify-content:center;
     padding:64px 48px 100px;
   }
-  .content-inner{ width:100%; max-width:620px; }
+  .content-inner{ width:100%; max-width:760px; }
+  #tayf.active, #research.active{ width:min(100%, 980px); margin:0 auto; }
+  #tayf.active p:not(.eyebrow):not(.tayf-mission):not(.tayf-gloss):not(.manifesto-question):not(.manifesto-punch):not(.scroll-cue),
+  #research.active p:not(.eyebrow):not(.proj-title):not(.proj-collab){ max-width:760px; }
 
   @media (max-width:900px){
     .layout{ flex-direction:column; }
@@ -178,9 +181,35 @@
     color:var(--accent); margin:2px 0 14px; line-height:1.35; max-width:520px;
     transition:color .2s;
   }
-  .manifesto-open{
-    font-family:'Source Serif 4', Georgia, serif; font-size:1.05rem; line-height:1.85;
-    text-align:left; color:var(--ink); margin:0 0 24px; max-width:500px;
+  .manifesto-question{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.2rem;
+    margin:0 0 22px; max-width:520px; line-height:1.4;
+  }
+  .manifesto-facts{
+    list-style:none; margin:0 0 26px; padding:0; display:flex; flex-direction:column; gap:10px;
+  }
+  .manifesto-facts li{
+    display:flex; align-items:center; gap:10px; font-family:'Source Serif 4', serif;
+    font-size:0.98rem; color:var(--ink-muted);
+    opacity:0; transform:translateY(6px); animation:factIn 0.5s ease forwards;
+  }
+  .manifesto-facts li:nth-child(1){ animation-delay:0.1s; }
+  .manifesto-facts li:nth-child(2){ animation-delay:0.3s; }
+  .manifesto-facts li:nth-child(3){ animation-delay:0.5s; }
+  .manifesto-facts li:nth-child(4){ animation-delay:0.7s; }
+  @keyframes factIn{ to{ opacity:1; transform:translateY(0); } }
+  .fact-dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .fact-violet{ background:var(--violet); }
+  .fact-teal{ background:var(--teal); }
+  .fact-blue{ background:var(--blue); }
+  .fact-magenta{ background:var(--magenta); }
+  .manifesto-punch{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.15rem;
+    color:var(--accent); margin:0 0 24px; max-width:520px; transition:color .2s;
+    opacity:0; animation:factIn 0.5s ease forwards; animation-delay:0.95s;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .manifesto-facts li, .manifesto-punch{ animation:none; opacity:1; transform:none; }
   }
   .tayf-next{
     display:inline-block; margin-top:28px; font-family:'IBM Plex Mono', monospace; font-size:0.86rem;
@@ -229,6 +258,11 @@
     .journey-traveler{ display:none; }
   }
   .tayf-figure{ text-align:center; margin:0 0 8px; }
+  .tayf-figure-small .tayf-img{ max-width:280px; }
+  .scroll-cue{
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; color:var(--accent);
+    text-align:center; margin:8px 0 64px; transition:color .2s;
+  }
   .tayf-img{
     display:block; width:100%; max-width:560px; border-radius:12px;
     border:1px solid var(--line); margin:0 auto;
@@ -313,6 +347,50 @@
   .service-list li{ padding:14px 0; border-bottom:1px solid var(--line); color:var(--ink-muted); max-width:600px; }
   .service-list li:first-child{ padding-top:0; }
   .service-list li:last-child{ border-bottom:none; padding-bottom:0; }
+
+  /* ---------- HERO / RESEARCH STORYTELLING ---------- */
+  .hero-kicker{font-family:'IBM Plex Mono',monospace;font-size:.8rem;color:var(--teal);margin:0 0 8px;text-transform:uppercase;letter-spacing:.06em;}
+  .hero-name{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.7rem,6vw,4.8rem);line-height:.98;letter-spacing:-.04em;margin:0 0 18px;font-weight:700;}
+  .hero-statement{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.35rem,2.6vw,2rem);line-height:1.25;max-width:800px;margin:0 0 18px;color:var(--accent);font-weight:600;}
+  .hero-deck{font-size:1.06rem;color:var(--ink-muted);max-width:760px;margin:0 0 26px;}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;}
+  .hero-meta span{font-family:'IBM Plex Mono',monospace;font-size:.73rem;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--paper-raised);}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px;}
+  .hero-btn{font-family:'IBM Plex Mono',monospace;font-size:.8rem;padding:9px 13px;border:1px solid var(--line);border-radius:8px;display:inline-block;}
+  .hero-btn.primary{border-color:var(--accent);color:#fff;background:var(--accent);}
+  .hero-btn:hover{text-decoration:none;transform:translateY(-1px);}
+  .scale-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:28px 0 46px;}
+  .scale-node{position:relative;padding:14px 10px;border:1px solid var(--line);border-radius:12px;text-align:center;background:linear-gradient(180deg,#fff,rgba(91,95,239,.025));}
+  .scale-node::after{content:'→';position:absolute;right:-11px;top:50%;transform:translateY(-50%);color:var(--ink-muted);}
+  .scale-node:last-child::after{display:none;}
+  .scale-node b{display:block;font-family:'Space Grotesk',sans-serif;font-size:.9rem;margin-bottom:3px;}
+  .scale-node small{font-family:'IBM Plex Mono',monospace;color:var(--ink-muted);font-size:.68rem;}
+  .research-architecture{margin:20px 0 46px;padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,rgba(91,95,239,.045),rgba(18,165,148,.035));}
+  .arch-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin:0 0 18px;}
+  .arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+  .arch-card{padding:16px;border:1px solid var(--line);border-radius:12px;background:#fff;}
+  .arch-card strong{font-family:'Space Grotesk',sans-serif;display:block;font-size:.92rem;margin-bottom:4px;}
+  .arch-card span{font-size:.85rem;color:var(--ink-muted);}
+  .highlight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0 48px;}
+  .highlight-card{padding:20px;border:1px solid var(--line);border-radius:14px;background:#fff;min-height:180px;transition:transform .18s,border-color .18s,box-shadow .18s;}
+  .highlight-card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 30px rgba(20,24,27,.06);}
+  .highlight-icon{font-size:1.65rem;margin-bottom:12px;}
+  .highlight-card h3{font-size:1rem;margin:0 0 8px;}
+  .highlight-card p{font-size:.9rem;color:var(--ink-muted);text-align:left;margin:0;}
+  .research-intro{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start;margin-bottom:34px;}
+  .vision-next{border-left:3px solid var(--accent);padding-left:18px;}
+  .vision-next p{margin:0 0 9px;text-align:left;}
+  .vision-next .mono{font-size:.72rem;color:var(--teal);text-transform:uppercase;}
+  .project-visual{height:110px;border-radius:10px;margin:0 0 16px;position:relative;overflow:hidden;border:1px solid var(--line);background:radial-gradient(circle at 70% 50%,rgba(91,95,239,.16),transparent 30%),linear-gradient(135deg,rgba(18,165,148,.08),rgba(91,95,239,.04));}
+  .project-visual::before,.project-visual::after{content:'';position:absolute;border-radius:50%;border:1px solid currentColor;opacity:.35;}
+  .project-visual::before{width:150px;height:150px;left:-30px;top:-22px;}
+  .project-visual::after{width:90px;height:90px;right:28px;top:10px;}
+  .proj-c1 .project-visual{color:var(--violet)} .proj-c2 .project-visual{color:var(--teal)} .proj-c3 .project-visual{color:var(--blue)} .proj-c4 .project-visual{color:var(--magenta)}
+  .project-question{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--ink);font-size:.97rem!important;text-align:left!important;}
+  .sidebar .portrait{width:136px;height:136px;}
+  .side-role{font-size:.74rem;}
+  @media(max-width:760px){.scale-strip,.arch-grid,.highlight-grid,.research-intro{grid-template-columns:1fr}.scale-node::after{content:'↓';right:50%;top:auto;bottom:-17px;transform:translateX(50%)}.hero-name{font-size:2.6rem}.sidebar .portrait{width:112px;height:112px}}
+
 </style>
 </head>
 <body>
@@ -321,7 +399,7 @@
   <aside class="sidebar">
     <img class="portrait" src="images/Hadeel.jpg" alt="Portrait of Hadeel Elayan">
     <p class="side-name">Hadeel Elayan<span class="side-name-ar">هديل اعليان</span></p>
-    <p class="side-role">Postdoctoral Fellow, Ultrabroadband Nanonetworking Laboratory — Institute for Intelligent Networked Systems, Northeastern University</p>
+    <p class="side-role">Postdoctoral Researcher · Northeastern University<br><span style="color:var(--accent)">THz · Bioelectromagnetics · 6G</span></p>
 
     <nav class="side-nav" id="sideNav">
       <a href="#tayf">tayf</a>
@@ -346,15 +424,39 @@
   <div class="content-inner">
     <section id="tayf" class="active">
       <p class="eyebrow">tayf</p>
-      <h2 class="tayf-title"><span class="typewriter" id="tayfTitle" data-text="Welcome to TAYF (طيف)"></span></h2>
-      <p class="tayf-mission">Engineering the Electromagnetic Interface to Life.</p>
-      <p class="tayf-gloss">tayf — Arabic for spectrum</p>
+      <p class="hero-kicker">Electromagnetics × Biology × Intelligence</p>
+      <h1 class="hero-name">Hadeel Elayan</h1>
+      <h2 class="hero-statement">Engineering the Electromagnetic Interface to Life.</h2>
+      <p class="hero-deck">I develop electromagnetic and computational interfaces that sense, communicate with, and ultimately control living systems — from proteins and cells to neural tissue and future wireless networks.</p>
+      <div class="hero-meta">
+        <span>MIT TR Innovator Under 35</span><span>NSERC Postdoctoral Fellow</span><span>IEEE AP-S YP Ambassador</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#research" class="hero-btn primary">Explore research</a>
+        <a href="#about" class="hero-btn">My journey</a>
+        <a href="#publications" class="hero-btn">Selected publications</a>
+      </div>
       <div class="tayf-figure">
         <img class="tayf-img" src="images/tayf-diagram.png" alt="TAYF — a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
       </div>
+      <p class="tayf-gloss">TAYF (طيف) — Arabic for spectrum</p>
+      <div class="scale-strip" aria-label="TAYF research across scales">
+        <div class="scale-node"><b>Protein</b><small>molecular dynamics</small></div>
+        <div class="scale-node"><b>Cell</b><small>bioelectromagnetics</small></div>
+        <div class="scale-node"><b>Neural Tissue</b><small>structured interfaces</small></div>
+        <div class="scale-node"><b>Human Body</b><small>intra-body links</small></div>
+        <div class="scale-node"><b>Network</b><small>6G intelligence</small></div>
+      </div>
 
       <h3 class="subsection-title">Why TAYF?</h3>
-      <p class="manifesto-open">Nature already communicates through physics.<br>Cells exchange signals.<br>Proteins change conformation.<br>Neurons transmit information.<br>Wireless systems propagate electromagnetic waves.</p>
+      <p class="manifesto-question">What if biology and technology already speak the same language?</p>
+      <ul class="manifesto-facts">
+        <li><span class="fact-dot fact-violet"></span>Cells exchange signals.</li>
+        <li><span class="fact-dot fact-teal"></span>Proteins change conformation.</li>
+        <li><span class="fact-dot fact-blue"></span>Neurons transmit information.</li>
+        <li><span class="fact-dot fact-magenta"></span>Wireless systems propagate electromagnetic waves.</li>
+      </ul>
+      <p class="manifesto-punch">The question isn't whether they can connect — it's how.</p>
       <p>Today, these disciplines remain largely disconnected. TAYF aims to unite them.</p>
       <p>By combining physics, bioelectromagnetics, communication theory, and artificial intelligence, TAYF aims to develop electromagnetic technologies capable of sensing, understanding, and eventually interacting with living systems across scales.</p>
 
@@ -427,9 +529,37 @@
 
     <section id="research">
       <p class="eyebrow">research</p>
-      <h2 class="section-title">Current Research Projects</h2>
+      <h2 class="section-title">Research Program</h2>
+      <div class="research-intro">
+        <div>
+          <p class="section-sub">TAYF asks a single question across scales: how can electromagnetic fields carry information into, through, and from living systems?</p>
+        </div>
+        <div class="vision-next">
+          <p class="mono">trajectory</p>
+          <p><b>Past:</b> THz molecular communication</p>
+          <p><b>Now:</b> sensing + actuation across biological scales</p>
+          <p><b>Next:</b> programmable electromagnetic biointerfaces</p>
+        </div>
+      </div>
+      <div class="research-architecture">
+        <p class="arch-title">Research at a glance</p>
+        <div class="arch-grid">
+          <div class="arch-card"><strong>Sense</strong><span>Extract biological state through EM interaction.</span></div>
+          <div class="arch-card"><strong>Communicate</strong><span>Build channels between engineered and living systems.</span></div>
+          <div class="arch-card"><strong>Control</strong><span>Shape fields to perturb molecular and cellular function.</span></div>
+          <div class="arch-card"><strong>Learn</strong><span>Fuse physics-based models with AI and biological intelligence.</span></div>
+        </div>
+      </div>
+      <h3 class="subsection-title">Selected Research Highlights</h3>
+      <div class="highlight-grid">
+        <div class="highlight-card"><div class="highlight-icon">◉</div><h3>Talking to Proteins</h3><p>Using terahertz electromagnetic signals to probe and actuate molecular dynamics.</p></div>
+        <div class="highlight-card"><div class="highlight-icon">⌁</div><h3>Structured Beams Inside the Body</h3><p>Engineering near-field wavefronts for robust sensing and communication in tissue.</p></div>
+        <div class="highlight-card"><div class="highlight-icon">⎔</div><h3>Biological Intelligence</h3><p>Connecting cellular and bacterial information processing with future network architectures.</p></div>
+      </div>
+      <h3 class="subsection-title">Current Research Projects</h3>
       <div class="proj-list">
         <div class="proj-card proj-c1">
+          <div class="project-visual" aria-hidden="true"></div>
           <div class="proj-head">
             <span class="proj-icon">
               <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -447,11 +577,12 @@
             <span class="tag tag-violet">sensing &amp; actuation</span>
           </div>
           <dl>
-            <dt>Focus</dt><dd>Physical-layer and propagation modeling for wireless nanonetworks operating inside biological tissue: THz channel characterization, wave–tissue interaction modeling, signal processing, and information-theoretic analysis of intra-body links.</dd>
+            <dt>Question</dt><dd class="project-question">How can nanoscale wireless systems communicate, sense, and actuate reliably inside biological tissue?</dd><dt>Approach</dt><dd>Physical-layer and propagation modeling for wireless nanonetworks operating inside biological tissue: THz channel characterization, wave–tissue interaction modeling, signal processing, and information-theoretic analysis of intra-body links.</dd>
             <dt>Impact</dt><dd>Establishes the engineering foundations for implantable nanoscale wireless devices capable of real-time sensing and actuation at the molecular level, with applications in continuous health telemetry, closed-loop therapeutics, and future 6G body-area networks.</dd>
           </dl>
         </div>
         <div class="proj-card proj-c2">
+          <div class="project-visual" aria-hidden="true"></div>
           <div class="proj-head">
             <span class="proj-icon">
               <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -469,12 +600,13 @@
             <span class="tag tag-teal">ISAC</span>
           </div>
           <dl>
-            <dt>Focus</dt><dd>Exploits near-field electromagnetic effects to unlock spatial degrees of freedom beyond far-field limits, enabling high-capacity THz links and super-resolved sensing.</dd>
+            <dt>Question</dt><dd class="project-question">Can structured near-field wavefronts create new degrees of freedom for communication and sensing?</dd><dt>Approach</dt><dd>Exploits near-field electromagnetic effects to unlock spatial degrees of freedom beyond far-field limits, enabling high-capacity THz links and super-resolved sensing.</dd>
             <dt>Impact</dt><dd>Advances a system-level near-field THz framework applicable to dense wireless infrastructure (AI factories, intra-datacenter links) and sub-millimetre sensing, directly enabling the distributed ISAC architectures targeted by NSF and DEVCOM programmes.</dd>
           </dl>
           <p class="proj-collab">In collaboration with Brown University and Rice University (United States)</p>
         </div>
         <div class="proj-card proj-c3">
+          <div class="project-visual" aria-hidden="true"></div>
           <div class="proj-head">
             <span class="proj-icon">
               <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -490,12 +622,13 @@
             <span class="tag tag-blue">structured illumination</span>
           </div>
           <dl>
-            <dt>Focus</dt><dd>Investigates electromagnetic wave propagation through riboflavin-crosslinked hydrogel media as a system-level design problem, characterizing how structured illumination shapes the resulting scaffold properties.</dd>
+            <dt>Question</dt><dd class="project-question">How do optical fields and scaffold mechanics jointly shape the interface experienced by growing neural tissue?</dd><dt>Approach</dt><dd>Investigates electromagnetic wave propagation through riboflavin-crosslinked hydrogel media as a system-level design problem, characterizing how structured illumination shapes the resulting scaffold properties.</dd>
             <dt>Impact</dt><dd>Establishes structured illumination as an engineering-controlled propagation variable, enabling reproducible scaffolds for neural tissue modeling and new routes for EM-based characterization of engineered biological media.</dd>
           </dl>
           <p class="proj-collab">In collaboration with the University of Essex (United Kingdom)</p>
         </div>
         <div class="proj-card proj-c4">
+          <div class="project-visual" aria-hidden="true"></div>
           <div class="proj-head">
             <span class="proj-icon">
               <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -515,7 +648,7 @@
             <span class="tag tag-magenta">6G mMTC</span>
           </div>
           <dl>
-            <dt>Focus</dt><dd>Characterizes EM wave propagation through biofilms and harnesses bacterial collective signal-processing for biocomputing and non-invasive infection sensing, integrating gene regulatory neural network models with 6G mMTC system design.</dd>
+            <dt>Question</dt><dd class="project-question">Can living microbial communities become both sensing media and computational substrates?</dd><dt>Approach</dt><dd>Characterizes EM wave propagation through biofilms and harnesses bacterial collective signal-processing for biocomputing and non-invasive infection sensing, integrating gene regulatory neural network models with 6G mMTC system design.</dd>
             <dt>Impact</dt><dd>Expands molecular communication theory to living computational substrates, with relevance to biocomputing architectures, EM-based detection of antimicrobial-resistant biofilms, and bio-inspired intelligence for 6G network control.</dd>
           </dl>
           <p class="proj-collab">In collaboration with the University of Nebraska–Lincoln (United States)</p>
