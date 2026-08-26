@@ -172,6 +172,14 @@
     font-family:'Space Grotesk', sans-serif; font-size:1.1rem; color:var(--ink-muted);
     margin:0 0 32px; max-width:580px;
   }
+  .tayf-framework{
+    font-family:'Space Grotesk',sans-serif; font-size:clamp(1.05rem,1.8vw,1.35rem);
+    line-height:1.5; font-weight:500; color:var(--ink); max-width:820px;
+    min-height:4.1em; margin:30px 0 38px; text-align:left !important;
+  }
+  .tayf-framework .typewriter{ border-right:2px solid var(--accent); }
+  .tayf-framework .typewriter.done{ border-right-color:transparent; }
+
   .tayf-gloss{
     font-family:'IBM Plex Mono', monospace; font-size:0.8rem; color:var(--ink-muted);
     font-style:italic; margin:-4px 0 20px;
@@ -231,6 +239,19 @@
   }
   .journey-city{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:0.95rem; margin:0 0 3px; }
   .journey-inst{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--ink-muted); margin:0; }
+  .journey-advisor{ font-family:'Source Serif 4', Georgia, serif; font-size:0.88rem; color:var(--ink-muted); margin:2px 0 7px; }
+  .journey-degree{ font-family:'Space Grotesk', sans-serif; font-size:0.78rem; font-weight:600; margin:7px 0 2px; line-height:1.35; }
+  .journey-year{ font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--accent); margin:0 0 5px; }
+  .journey-role{ font-family:'Space Grotesk', sans-serif; font-size:0.78rem; font-weight:600; margin:7px 0 2px; line-height:1.35; }
+
+  .blog-placeholder{
+    min-height:330px; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; border:1px solid var(--line); border-radius:16px; padding:48px 28px;
+    background:linear-gradient(145deg, rgba(91,95,239,0.035), rgba(18,165,148,0.025));
+  }
+  .blog-placeholder-mark{ font-family:'IBM Plex Mono', monospace; font-size:1rem; color:var(--accent); margin-bottom:18px; }
+  .blog-placeholder h2{ margin:0 0 12px; font-size:1.55rem; }
+  .blog-placeholder p{ margin:0; max-width:430px; color:var(--ink-muted); text-align:center; }
 
   .journey-traveler{
     position:absolute; top:6px; width:7px; height:7px; border-radius:50%;
@@ -388,8 +409,34 @@
   .proj-c1 .project-visual{color:var(--violet)} .proj-c2 .project-visual{color:var(--teal)} .proj-c3 .project-visual{color:var(--blue)} .proj-c4 .project-visual{color:var(--magenta)}
   .project-question{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--ink);font-size:.97rem!important;text-align:left!important;}
   .sidebar .portrait{width:136px;height:136px;}
-  .side-role{font-size:.74rem;}
+  .side-role{font-size:.74rem; margin-bottom:14px;}
+  .side-credentials{font-family:'IBM Plex Mono',monospace;font-size:.67rem;line-height:1.65;color:var(--ink-muted);margin:0 0 26px;}
+  .side-credentials span{display:block;}
+  .side-credentials span::before{content:'· ';color:var(--accent);}
   @media(max-width:760px){.scale-strip,.arch-grid,.highlight-grid,.research-intro{grid-template-columns:1fr}.scale-node::after{content:'↓';right:50%;top:auto;bottom:-17px;transform:translateX(50%)}.hero-name{font-size:2.25rem}.sidebar .portrait{width:112px;height:112px}}
+
+
+  /* simplified vertical academic journey */
+  .academic-journey{
+    position:relative; margin:28px 0 40px; padding-left:34px; max-width:560px;
+  }
+  .academic-journey::before{
+    content:""; position:absolute; left:7px; top:8px; bottom:8px; width:1px; background:var(--line);
+  }
+  .journey-item{ position:relative; margin-bottom:30px; }
+  .journey-item:last-child{ margin-bottom:0; }
+  .journey-node{
+    position:absolute; left:-31px; top:7px; width:9px; height:9px; border-radius:50%;
+    background:var(--accent); box-shadow:0 0 0 4px var(--paper);
+  }
+  .journey-copy p{ max-width:none; text-align:left; hyphens:none; }
+  .journey-city{
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:1rem; margin:0 0 2px;
+  }
+  .journey-inst{
+    font-family:'IBM Plex Mono',monospace; font-size:0.76rem; color:var(--ink-muted); margin:0 0 7px;
+  }
+  .journey-degree{ color:var(--ink-muted); font-size:0.94rem; margin:2px 0; }
 
 </style>
 </head>
@@ -399,18 +446,19 @@
   <aside class="sidebar">
     <img class="portrait" src="images/Hadeel.jpg" alt="Portrait of Hadeel Elayan">
     <p class="side-name">Hadeel Elayan<span class="side-name-ar">هديل اعليان</span></p>
-    <p class="side-role">Postdoctoral Researcher · Northeastern University<br><span style="color:var(--accent)">THz · Bioelectromagnetics · 6G</span></p>
+    <p class="side-role">Postdoctoral Researcher · Northeastern University</p>
+    <p class="side-credentials"><span>MIT Technology Review Innovator Under 35</span><span>NSERC Postdoctoral Fellow</span><span>IEEE AP-S Young Professional Ambassador</span></p>
 
     <nav class="side-nav" id="sideNav">
       <a href="#tayf">tayf</a>
-      <a href="#about">about me</a>
-      <a href="#education">education</a>
+      <a href="#about">about</a>
       <a href="#research">research</a>
       <a href="#publications">publications</a>
       <a href="#honors">honors</a>
       <a href="#teaching">teaching</a>
       <a href="#service">service</a>
       <a href="#contact">contact</a>
+      <a href="#blogs">blogs</a>
     </nav>
 
     <div class="side-links">
@@ -424,21 +472,10 @@
   <div class="content-inner">
     <section id="tayf" class="active">
       <p class="eyebrow">tayf</p>
-      <p class="hero-kicker">Electromagnetics × Biology × Intelligence</p>
       <h2 class="hero-statement">Engineering the Electromagnetic Interface to Life.</h2>
-      <p class="hero-deck">I develop electromagnetic and computational interfaces that sense, communicate with, and ultimately control living systems: from proteins and cells to neural tissue and future wireless networks.</p>
-      <div class="hero-meta">
-        <span>MIT TR Innovator Under 35</span><span>NSERC Postdoctoral Fellow</span><span>IEEE AP-S YP Ambassador</span>
-      </div>
-      <div class="hero-actions">
-        <a href="#research" class="hero-btn primary">Explore research</a>
-        <a href="#about" class="hero-btn">My journey</a>
-        <a href="#publications" class="hero-btn">Selected publications</a>
-      </div>
-      <div class="tayf-figure">
-        <img class="tayf-img" src="images/tayf-diagram.png" alt="TAYF — a framework spanning electromagnetic physics, communication theory, sensing, physics-based models, AI, and closed-loop therapeutics across living and physical systems.">
-      </div>
+      <p class="hero-deck">I develop electromagnetic and computational interfaces that sense, communicate with, and ultimately control living systems — from proteins and cells to neural tissue and future wireless networks. My research vision is summed up in <strong>TAYF</strong>.</p>
       <p class="tayf-gloss">TAYF (طيف) — Arabic for spectrum</p>
+      <p class="tayf-framework"><span class="typewriter" id="tayfFramework" data-text="TAYF — a framework spanning physics, bioelectromagnetics, communication, sensing, and intelligence across living and engineered systems."></span></p>
       <div class="scale-strip" aria-label="TAYF research across scales">
         <div class="scale-node"><b>Protein</b><small>molecular dynamics</small></div>
         <div class="scale-node"><b>Cell</b><small>bioelectromagnetics</small></div>
@@ -447,17 +484,7 @@
         <div class="scale-node"><b>Network</b><small>6G intelligence</small></div>
       </div>
 
-      <h3 class="subsection-title">Why TAYF?</h3>
-      <p class="manifesto-question">What if biology and technology already speak the same language?</p>
-      <ul class="manifesto-facts">
-        <li><span class="fact-dot fact-violet"></span>Cells exchange signals.</li>
-        <li><span class="fact-dot fact-teal"></span>Proteins change conformation.</li>
-        <li><span class="fact-dot fact-blue"></span>Neurons transmit information.</li>
-        <li><span class="fact-dot fact-magenta"></span>Wireless systems propagate electromagnetic waves.</li>
-      </ul>
-      <p class="manifesto-punch">The question isn't whether they can connect — it's how.</p>
-      <p>Today, these disciplines remain largely disconnected. TAYF aims to unite them.</p>
-      <p>By combining physics, bioelectromagnetics, communication theory, and artificial intelligence, TAYF aims to develop electromagnetic technologies capable of sensing, understanding, and eventually interacting with living systems across scales.</p>
+      <p>TAYF brings these ideas into a common framework, using electromagnetic waves not only as carriers of information, but as engineered interfaces between physical and living systems. Across scales, the goal is to uncover how fields can probe biological dynamics, convey information, and ultimately enable precise interaction with living matter.</p>
 
       <a href="#about" class="tayf-next">→ Read more about me</a>
     </section>
@@ -467,63 +494,42 @@
       <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://coe.northeastern.edu/coe-research/research-centers-institutes/institute-for-intelligent-networked-systems/" target="_blank" rel="noopener">Institute for Intelligent Networked Systems</a> at Northeastern University, working with <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a> as my advisor.</p>
       <p>My path took me from Abu Dhabi to Toronto to Boston.</p>
 
-      <div class="journey-map">
-        <div class="journey-stop">
-          <span class="journey-dot"></span>
-          <p class="journey-city">Abu Dhabi</p>
-          <p class="journey-inst">Khalifa University</p>
+      <div class="academic-journey">
+        <div class="journey-item">
+          <span class="journey-node"></span>
+          <div class="journey-copy">
+            <p class="journey-city">Abu Dhabi</p>
+            <p class="journey-inst">Khalifa University</p>
+            <p class="journey-advisor">Advisor: Raed Shubair</p>
+            <p class="journey-degree">B.Sc. in Telecommunication Engineering · 2015</p>
+            <p class="journey-degree">M.Sc. in Electrical &amp; Computer Engineering · 2017</p>
+          </div>
         </div>
-        <div class="journey-stop">
-          <span class="journey-dot"></span>
-          <p class="journey-city">Toronto</p>
-          <p class="journey-inst">University of Toronto</p>
+        <div class="journey-item">
+          <span class="journey-node"></span>
+          <div class="journey-copy">
+            <p class="journey-city">Toronto</p>
+            <p class="journey-inst">University of Toronto</p>
+            <p class="journey-advisor">Advisors: Raviraj Adve &amp; Andrew Eckford</p>
+            <p class="journey-degree">Ph.D. in Electrical &amp; Computer Engineering · 2023</p>
+          </div>
         </div>
-        <div class="journey-stop">
-          <span class="journey-dot"></span>
-          <p class="journey-city">Boston</p>
-          <p class="journey-inst">Northeastern University</p>
+        <div class="journey-item">
+          <span class="journey-node"></span>
+          <div class="journey-copy">
+            <p class="journey-city">Boston</p>
+            <p class="journey-inst">Northeastern University</p>
+            <p class="journey-advisor">Advisor: Josep M. Jornet</p>
+            <p class="journey-degree">Postdoctoral Fellow · Present</p>
+          </div>
         </div>
-        <span class="journey-traveler"></span>
       </div>
 
       <p>My fascination with the nanoscale began during my senior undergraduate year as I developed a deeper understanding of communication systems. During my Ph.D., one question kept returning:</p>
       <p class="pull-quote">Can electromagnetic waves communicate with biology — not just carry information between devices, but directly interact with proteins and living systems?</p>
       <p>Exploring that question led me into the world of bioelectromagnetics. What began as an investigation of terahertz interactions with individual proteins gradually evolved into a broader pursuit spanning sensing, actuation, communication, and intelligence across biological and engineered systems.</p>
-      <p>TAYF is the culmination of that journey — a research vision dedicated to engineering an electromagnetic interface to life. <a href="#tayf" class="tayf-inline-link">Read more about TAYF →</a></p>
-      <p class="tl-meta">Along the way, this work has been recognized by MIT Technology Review's Innovators Under 35 and IEEE ComSoc's N2Women Rising Stars program.</p>
-      <div class="tags">
-        <span class="tag tag-violet">terahertz comms &amp; sensing</span>
-        <span class="tag tag-teal">nano-bio channel modeling</span>
-        <span class="tag tag-blue">6G wireless networks</span>
-      </div>
-      <a href="#education" class="tayf-next">→ See my full academic path</a>
-    </section>
-
-    <section id="education">
-      <p class="eyebrow">education</p>
-      <h2 class="section-title">Education</h2>
-      <div class="timeline">
-        <div class="tl-item">
-          <span class="tl-date">Sept. 2018 – Sept. 2023</span>
-          <p class="tl-degree">Ph.D. in Electrical and Computer Engineering</p>
-          <p class="tl-meta">University of Toronto, Toronto, Canada</p>
-          <p class="tl-meta">Thesis: <i>Controlling Molecular Interactions Using Terahertz Electromagnetic Signals</i></p>
-          <p class="tl-meta">Advisors: Raviraj Adve and Andrew Eckford</p>
-          <p class="tl-meta">Committee: Costas Sarris, Willy Wong, Ervin Sejdic, Sasitharan Balasubramaniam</p>
-          <p class="tl-meta">★ Governor General Gold Medal Award Nomination</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-date">Sept. 2015 – May 2017</span>
-          <p class="tl-degree">M.Sc. in Electrical and Computer Engineering <span class="mono" style="font-size:0.7em; color:var(--ink-muted);">(Highest Honors)</span></p>
-          <p class="tl-meta">Khalifa University, Abu Dhabi, UAE</p>
-          <p class="tl-meta">Advisor: Raed Shubair</p>
-        </div>
-        <div class="tl-item">
-          <span class="tl-date">Sept. 2011 – June 2015</span>
-          <p class="tl-degree">B.Sc. in Telecommunication Engineering <span class="mono" style="font-size:0.7em; color:var(--ink-muted);">(Highest Honors)</span></p>
-          <p class="tl-meta">Khalifa University, Sharjah, UAE</p>
-        </div>
-      </div>
+      <p>TAYF is the culmination of that journey — a research vision dedicated to engineering an electromagnetic interface to life.</p>
+      <a href="#research" class="tayf-next">→ Dive more into my research</a>
     </section>
 
     <section id="research">
@@ -668,6 +674,15 @@
       <a class="see-more" href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">→ full publication list on Google Scholar</a>
     </section>
 
+    <section id="blogs">
+      <p class="eyebrow">blogs</p>
+      <div class="blog-placeholder">
+        <div class="blog-placeholder-mark">// notes from across the spectrum</div>
+        <h2>Content coming soon.</h2>
+        <p>Short reflections on bioelectromagnetics, terahertz systems, research ideas, and the questions shaping TAYF.</p>
+      </div>
+    </section>
+
     <section id="honors">
       <p class="eyebrow">honors</p>
       <h2 class="section-title">Selected Honors, Grants &amp; Awards</h2>
@@ -770,8 +785,8 @@
   const sections = document.querySelectorAll('.content-inner > section');
 
   const accentMap = {
-    tayf:'#5B5FEF', about:'#12A594', education:'#3B6FE0', research:'#B23A82',
-    publications:'#5B5FEF', honors:'#12A594', teaching:'#3B6FE0', service:'#B23A82', contact:'#5B5FEF'
+    tayf:'#5B5FEF', about:'#12A594', research:'#B23A82',
+    publications:'#5B5FEF', blogs:'#3B6FE0', honors:'#12A594', teaching:'#3B6FE0', service:'#B23A82', contact:'#5B5FEF'
   };
 
   function showTab(id, updateHash){
@@ -808,7 +823,7 @@
     const text = el.getAttribute('data-text');
     let i = 0;
     el.textContent = '';
-    const speed = 180;
+    const speed = Number(el.dataset.speed || 42);
     const step = () => {
       if (i <= text.length){
         el.textContent = text.slice(0, i);
@@ -820,8 +835,8 @@
     };
     setTimeout(step, 400);
   }
-  const titleEl = document.getElementById('tayfTitle');
-  if (titleEl) typewrite(titleEl);
+  const frameworkEl = document.getElementById('tayfFramework');
+  if (frameworkEl) typewrite(frameworkEl);
 </script>
 
 </body>
