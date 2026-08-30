@@ -386,6 +386,10 @@
   .scale-node:last-child::after{display:none;}
   .scale-node b{display:block;font-family:'Space Grotesk',sans-serif;font-size:.9rem;margin-bottom:3px;}
   .scale-node small{font-family:'IBM Plex Mono',monospace;color:var(--ink-muted);font-size:.68rem;}
+  .tayf-scale-visual{ margin:30px -150px 42px; text-align:center; }
+  .tayf-scale-visual img{ display:block; width:100%; max-width:920px; height:auto; margin:0 auto; border:0; }
+  @media(max-width:1100px){ .tayf-scale-visual{ margin-left:-60px; margin-right:-60px; } }
+  @media(max-width:760px){ .tayf-scale-visual{ margin:24px 0 34px; } .tayf-scale-visual img{ width:100%; } }
   .research-architecture{margin:20px 0 46px;padding:24px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(135deg,rgba(91,95,239,.045),rgba(18,165,148,.035));}
   .arch-title{font-family:'Space Grotesk',sans-serif;font-size:1.1rem;font-weight:700;margin:0 0 18px;}
   .arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
@@ -476,13 +480,9 @@
       <p class="hero-deck">I develop electromagnetic and computational interfaces that sense, communicate with, and ultimately control living systems — from proteins and cells to neural tissue and future wireless networks. My research vision is summed up in <strong>TAYF</strong>.</p>
       <p class="tayf-gloss">TAYF (طيف) — Arabic for spectrum</p>
       <p class="tayf-framework"><span class="typewriter" id="tayfFramework" data-text="TAYF — a framework spanning physics, bioelectromagnetics, communication, sensing, and intelligence across living and engineered systems."></span></p>
-      <div class="scale-strip" aria-label="TAYF research across scales">
-        <div class="scale-node"><b>Protein</b><small>molecular dynamics</small></div>
-        <div class="scale-node"><b>Cell</b><small>bioelectromagnetics</small></div>
-        <div class="scale-node"><b>Neural Tissue</b><small>structured interfaces</small></div>
-        <div class="scale-node"><b>Human Body</b><small>intra-body links</small></div>
-        <div class="scale-node"><b>Network</b><small>6G intelligence</small></div>
-      </div>
+      <figure class="tayf-scale-visual" aria-label="TAYF research across biological scales connected to a wireless network">
+        <img src="images/tayf_FIG.png" alt="Protein, cell, tissue, and neuron research scales connected to a wireless communication tower." loading="eager">
+      </figure>
 
       <p>TAYF brings these ideas into a common framework, using electromagnetic waves not only as carriers of information, but as engineered interfaces between physical and living systems. Across scales, the goal is to uncover how fields can probe biological dynamics, convey information, and ultimately enable precise interaction with living matter.</p>
 
@@ -491,7 +491,7 @@
 
     <section id="about">
       <p class="eyebrow">about</p>
-      <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://coe.northeastern.edu/coe-research/research-centers-institutes/institute-for-intelligent-networked-systems/" target="_blank" rel="noopener">Institute for Intelligent Networked Systems</a> at Northeastern University, working under the mentorship of Prof. <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a>.</p>
+      <p>I am a postdoctoral fellow in the <a href="https://unlab.tech" target="_blank" rel="noopener">Ultrabroadband Nanonetworking Laboratory</a> at the <a href="https://coe.northeastern.edu/coe-research/research-centers-institutes/institute-for-intelligent-networked-systems/" target="_blank" rel="noopener">Institute for Intelligent Networked Systems</a> at Northeastern University, working with <a href="https://coe.northeastern.edu/people/jornet-josep-m/" target="_blank" rel="noopener">Josep Jornet</a> as my advisor.</p>
       <p>My path took me from Abu Dhabi to Toronto to Boston.</p>
 
       <div class="academic-journey">
