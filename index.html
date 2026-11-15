@@ -442,6 +442,38 @@
   }
   .journey-degree{ color:var(--ink-muted); font-size:0.94rem; margin:2px 0; }
 
+
+  /* Recent news on TAYF landing page */
+  .recent-news{margin:34px 0 16px;border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:linear-gradient(120deg,rgba(91,95,239,.035),#fff 50%,rgba(18,165,148,.025));}
+  .news-header{display:flex;align-items:center;gap:9px;margin-bottom:8px;font-family:'Space Grotesk',sans-serif;font-size:1rem;font-weight:600;}
+  .news-dot{width:8px;height:8px;background:var(--teal);border-radius:50%;}
+  .news-entry{display:grid;grid-template-columns:90px minmax(0,1fr);gap:14px;padding:13px 0;border-bottom:1px solid var(--line);}
+  .news-entry:last-child{border-bottom:0;padding-bottom:0;}
+  .news-date{font:0.73rem 'IBM Plex Mono',monospace;color:var(--ink-muted);padding-top:3px;}
+  .news-entry p{margin:0!important;text-align:left!important;hyphens:none!important;font-size:.93rem;line-height:1.5;}
+  .news-entry a{font-weight:600;color:var(--ink);}
+  .news-entry a:hover{color:var(--violet);}
+  .news-extra{display:none;}
+  .recent-news.expanded .news-extra{display:grid;}
+  .news-toggle{border:0;background:transparent;color:var(--violet);font:0.76rem 'IBM Plex Mono',monospace;cursor:pointer;padding:13px 0 0;}
+  @media(max-width:520px){.recent-news{padding:18px}.news-entry{grid-template-columns:1fr;gap:2px;}}
+
+  /* Room for a readable introduction and a compact news column. */
+  .content-inner:has(> #tayf.active){max-width:1100px;}
+  #tayf.active{width:100%;}
+  .tayf-landing{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start;}
+  .tayf-main{min-width:0;}
+  .tayf-landing .recent-news{margin:0;}
+  .tayf-landing .news-entry{grid-template-columns:1fr;gap:5px;}
+  .tayf-landing .news-header{margin-top:0;}
+  @media(min-width:1280px){
+    .tayf-landing{grid-template-columns:minmax(0,1fr) 260px;gap:36px;}
+    .tayf-landing .recent-news{padding:20px;}
+    .tayf-landing .news-entry p{font-size:.87rem;line-height:1.55;}
+  }
+  .news-bullets{margin:10px 0 0;padding-left:18px;font-size:.87rem;line-height:1.55;}
+  .news-bullets li{padding-left:2px;margin-bottom:10px;}
+  .news-bullets li:last-child{margin-bottom:0;}
 </style>
 </head>
 <body>
@@ -475,6 +507,8 @@
   <main class="content">
   <div class="content-inner">
     <section id="tayf" class="active">
+      <div class="tayf-landing">
+      <div class="tayf-main">
       <p class="eyebrow">tayf</p>
       <h2 class="hero-statement">Engineering the Electromagnetic Interface to Life.</h2>
       <p class="hero-deck">I develop electromagnetic and computational interfaces that sense, communicate with, and ultimately control living systems, from proteins and cells to neural tissue and future wireless networks. My research vision is summed up in <strong>TAYF</strong>.</p>
@@ -486,7 +520,21 @@
 
       <p>TAYF brings these ideas into a common framework, using electromagnetic waves not only as carriers of information, but as engineered interfaces between physical and living systems. Across scales, the goal is to uncover how fields can probe biological dynamics, convey information, and ultimately enable precise interaction with living matter.</p>
 
+
+
+
       <a href="#about" class="tayf-next">→ Read more about me</a>
+      </div>
+       <aside class="recent-news" aria-label="Recent news">
+         <h2 class="news-header"><span class="news-dot" aria-hidden="true"></span> Recent News</h2>
+         <div class="news-entry"><span class="news-date">2026</span><p><strong>Distinguished Alumni Recognition:</strong> Featured on the <a href="https://www.ku.ac.ae/career-alumni-alumni#wall-of-fame" target="_blank" rel="noopener">Khalifa University Alumni Wall of Fame</a> for research contributions and professional achievements.</p></div>
+         <div class="news-entry"><span class="news-date">2026</span><div><p><strong>ACM NanoCom 2026</strong> · St. John’s, Canada</p><ul class="news-bullets"><li>Presented <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:j3f4tGmQtD8C" target="_blank" rel="noopener">Engineering Uniform Hydrogel Mechanics via Communication-Theoretic Structured Illumination</a>.</li><li>Presented <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:4JMBOYKVnBMC" target="_blank" rel="noopener">Terahertz Integrated Sensing and Communication for Intra-Alveolar Nanosensor Networks</a>.</li><li>Delivered a tutorial.</li><li>Served as TPC Co-Chair and received the <strong>Outstanding TPC Chair Certificate</strong> for technical program leadership and peer-review coordination.</li></ul></div></div>
+         <div class="news-entry"><span class="news-date">2026</span><p><strong>Survey published:</strong> <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:e5wmG9Sq2KIC" target="_blank" rel="noopener">Nano-Bio Systems for Intra-body Sensing, Actuation, and Communication in the Terahertz Band and Beyond</a> in <em>IEEE Communications Surveys &amp; Tutorials</em>.</p></div>
+         <div class="news-entry news-extra"><span class="news-date">2026</span><p><strong>New journal article:</strong> <a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:RHpTSmoSYBkC" target="_blank" rel="noopener">Integrating biological intelligence into 6G mMTC systems using gene regulatory neural networks</a> in <em>npj Wireless Technology</em>, vol. 2, article 54.</p></div>
+         <div class="news-entry news-extra"><span class="news-date">2026</span><p><a href="https://ieeeaps.org/committees/2026ypa" target="_blank" rel="noopener">IEEE Antennas and Propagation Society Young Professional Ambassador.</a> Selected as one of 12 ambassadors in the published 2026 cohort to deliver technical lectures and promote research engagement across IEEE chapters worldwide.</p></div>
+         <button class="news-toggle" type="button" aria-expanded="false">+ More updates</button>
+       </aside>
+      </div>
     </section>
 
     <section id="about">
@@ -663,13 +711,13 @@
 
     <section id="publications">
       <p class="eyebrow">publications</p>
-      <h2 class="section-title">2026 Publications</h2>
+      <h2 class="section-title">Selected Publications · 2026</h2>
       <p class="section-sub">The complete, continually updated record is on <a href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
       <ul class="row-list">
-        <li><span class="row-tag">J</span><div><span class="row-title">Sensing the Near-Field at Terahertz Frequencies: Structured Beams as the Missing Half of ISAC</span><p class="row-meta">H. Elayan, A. Comas, C. Spindel, K. Mutai, E. Knightly, D. Mittleman, J. M. Jornet · submitted to IEEE Communications Magazine</p></div></li>
-        <li><span class="row-tag">J</span><div><span class="row-title">Nano-Bio Systems for Intra-Body Sensing, Actuation, and Communication in the Terahertz Band and Beyond</span><p class="row-meta">K. Skos, H. Elayan, S. Elmaadawy, P. Kulakowski, J. M. Jornet · IEEE Communications Surveys &amp; Tutorials, vol. 28, pp. 6354–6383, 2026</p></div></li>
-        <li><span class="row-tag">J</span><div><span class="row-title">Integrating Biological Intelligence into 6G mMTC Systems using Gene Regulatory Neural Networks</span><p class="row-meta">H. Elayan, S. Somathilak, J. M. Jornet, S. Balasubramaniam · npj Wireless Technology, 2026 (accepted)</p></div></li>
-        <li><span class="row-tag">C</span><div><span class="row-title">Modeling Airy Beam Propagation for Intra-body Nanoscale Communication</span><p class="row-meta">H. Elayan, J. Jornet · IEEE ICC 2026, Glasgow, Scotland</p></div></li>
+        <li><span class="row-tag">J</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:e5wmG9Sq2KIC" target="_blank" rel="noopener">Nano-Bio Systems for Intra-body Sensing, Actuation, and Communication in the Terahertz Band and Beyond</a></span><p class="row-meta">K. Skos, H. Elayan, S. Elmaadawy, P. Kulakowski, J. M. Jornet · IEEE Communications Surveys &amp; Tutorials, vol. 28, pp. 6354–6383, 2026</p></div></li>
+        <li><span class="row-tag">J</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:RHpTSmoSYBkC" target="_blank" rel="noopener">Integrating biological intelligence into 6G mMTC systems using gene regulatory neural networks</a></span><p class="row-meta">H. Elayan, S. Somathilaka, J. M. Jornet, S. Balasubramaniam · npj Wireless Technology, vol. 2, article 54, 2026</p></div></li>
+        <li><span class="row-tag">C</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:j3f4tGmQtD8C" target="_blank" rel="noopener">Engineering Uniform Hydrogel Mechanics via Communication-Theoretic Structured Illumination</a></span><p class="row-meta">H. Elayan, J. Mullet, A. Mohr, R. Scherer, M. Barros, J. M. Jornet · Proceedings of the 13th Annual ACM International Conference on Nanoscale Computing and Communication, 2026</p></div></li>
+        <li><span class="row-tag">C</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:4JMBOYKVnBMC" target="_blank" rel="noopener">Terahertz Integrated Sensing and Communication for Intra-Alveolar Nanosensor Networks</a></span><p class="row-meta">K. Skos, H. Elayan, J. M. Jornet, P. Kulakowski · Proceedings of the 13th Annual ACM International Conference on Nanoscale Computing and Communication, 2026</p></div></li>
       </ul>
       <a class="see-more" href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">→ full publication list on Google Scholar</a>
     </section>
@@ -687,7 +735,9 @@
       <p class="eyebrow">honors</p>
       <h2 class="section-title">Selected Honors, Grants &amp; Awards</h2>
       <ul class="honor-list">
-        <li><span class="honor-year">2026</span><p>Selected as an <span class="honor-source">IEEE Antennas and Propagation Society</span> Young Professional Ambassador</p></li>
+        <li><span class="honor-year">2026</span><p>Distinguished Alumni Recognition, <a class="honor-source" href="https://www.ku.ac.ae/career-alumni-alumni#wall-of-fame" target="_blank" rel="noopener">Khalifa University Alumni Wall of Fame</a> — recognized for research contributions and professional achievements</p></li>
+        <li><span class="honor-year">2026</span><p>Outstanding TPC Chair Certificate, <span class="honor-source">13th ACM NanoCom</span> — technical program leadership and peer-review coordination</p></li>
+        <li><span class="honor-year">2026</span><p>Selected as one of 12 <a class="honor-source" href="https://ieeeaps.org/committees/2026ypa" target="_blank" rel="noopener">IEEE Antennas and Propagation Society Young Professional Ambassadors</a> in the 2026 cohort</p></li>
         <li><span class="honor-year">2025</span><p>Selected as a Rising Star for the Women in Engineering Workshop in the <span class="honor-source">Asia Dean Forum</span></p></li>
         <li><span class="honor-year">2025</span><p>Recipient of the Mojgan Daneshmand Grant, <span class="honor-source">IEEE Antennas and Propagation Society</span></p></li>
         <li><span class="honor-year">2024</span><p>Selected as an N2Women Rising Star in Networking and Communications by <span class="honor-source">IEEE ComSoc</span></p></li>
@@ -780,6 +830,14 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  const newsToggle = document.querySelector('.news-toggle');
+  if (newsToggle) newsToggle.addEventListener('click', () => {
+    const box = newsToggle.closest('.recent-news');
+    const expanded = box.classList.toggle('expanded');
+    newsToggle.setAttribute('aria-expanded', String(expanded));
+    newsToggle.textContent = expanded ? '− Fewer updates' : '+ More updates';
+  });
 
   const links = document.querySelectorAll('#sideNav a');
   const sections = document.querySelectorAll('.content-inner > section');
