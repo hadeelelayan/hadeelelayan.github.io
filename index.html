@@ -474,6 +474,17 @@
   .news-bullets{margin:10px 0 0;padding-left:18px;font-size:.87rem;line-height:1.55;}
   .news-bullets li{padding-left:2px;margin-bottom:10px;}
   .news-bullets li:last-child{margin-bottom:0;}
+  /* Selected publications within research themes */
+  .theme-papers{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);}
+  .theme-papers h4{font-family:'IBM Plex Mono',monospace;font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--teal);margin:0 0 12px;}
+  .theme-papers ul{margin:0;padding-left:18px;}
+  .theme-papers li{margin:0 0 14px;font-size:.93rem;line-height:1.55;}
+  .theme-papers li:last-child{margin-bottom:0;}
+  .theme-papers a{font-family:'Space Grotesk',sans-serif;font-weight:500;overflow-wrap:anywhere;}
+  .theme-paper-meta{display:block;font-size:.8rem;color:var(--ink-muted);margin-top:5px;}
+  .theme-work{color:var(--ink-muted);}
+  #research .theme-status{font-size:.83rem;color:var(--ink-muted);text-align:left;margin:12px 0 0;}
+  .research-publications-note{margin:32px 0 0;padding-top:22px;border-top:1px solid var(--line);text-align:left;}
 </style>
 </head>
 <body>
@@ -489,7 +500,6 @@
       <a href="#tayf">tayf</a>
       <a href="#about">about</a>
       <a href="#research">research</a>
-      <a href="#publications">publications</a>
       <a href="#honors">honors</a>
       <a href="#teaching">teaching</a>
       <a href="#service">service</a>
@@ -583,15 +593,9 @@
     <section id="research">
       <p class="eyebrow">research</p>
       <h2 class="section-title">Research Program</h2>
-      <div class="research-intro">
+      <div class="research-intro" style="grid-template-columns:1fr;">
         <div>
-          <p class="section-sub">TAYF asks a single question across scales: how can electromagnetic fields carry information into, through, and from living systems?</p>
-        </div>
-        <div class="vision-next">
-          <p class="mono">trajectory</p>
-          <p><b>Past:</b> THz molecular communication</p>
-          <p><b>Now:</b> sensing + actuation across biological scales</p>
-          <p><b>Next:</b> programmable electromagnetic biointerfaces</p>
+          <p class="section-sub">My research examines how electromagnetic fields interact with living and engineered systems. I develop models for intra-body communication and sensing, investigate wavefront shaping using structured beams, and study how electromagnetic signals can interface with biological materials and information processing.</p>
         </div>
       </div>
       <div class="research-architecture">
@@ -603,13 +607,7 @@
           <div class="arch-card"><strong>Learn</strong><span>Fuse physics-based models with AI and biological intelligence.</span></div>
         </div>
       </div>
-      <h3 class="subsection-title">Selected Research Highlights</h3>
-      <div class="highlight-grid">
-        <div class="highlight-card"><div class="highlight-icon">◉</div><h3>Talking to Proteins</h3><p>Using terahertz electromagnetic signals to probe and actuate molecular dynamics.</p></div>
-        <div class="highlight-card"><div class="highlight-icon">⌁</div><h3>Structured Beams Inside the Body</h3><p>Engineering near-field wavefronts for robust sensing and communication in tissue.</p></div>
-        <div class="highlight-card"><div class="highlight-icon">⎔</div><h3>Biological Intelligence</h3><p>Connecting cellular and bacterial information processing with future network architectures.</p></div>
-      </div>
-      <h3 class="subsection-title">Current Research Projects</h3>
+      <h3 class="subsection-title">Research Themes</h3>
       <div class="proj-list">
         <div class="proj-card proj-c1">
           <div class="project-visual" aria-hidden="true"></div>
@@ -630,9 +628,11 @@
             <span class="tag tag-violet">sensing &amp; actuation</span>
           </div>
           <dl>
-            <dt>Question</dt><dd class="project-question">How can nanoscale wireless systems communicate, sense, and actuate reliably inside biological tissue?</dd><dt>Approach</dt><dd>Physical-layer and propagation modeling for wireless nanonetworks operating inside biological tissue: THz channel characterization, wave–tissue interaction modeling, signal processing, and information-theoretic analysis of intra-body links.</dd>
-            <dt>Impact</dt><dd>Establishes the engineering foundations for implantable nanoscale wireless devices capable of real-time sensing and actuation at the molecular level, with applications in continuous health telemetry, closed-loop therapeutics, and future 6G body-area networks.</dd>
+            <dt>Question</dt><dd class="project-question">How can nanoscale devices exchange information and sense their surroundings inside the body?</dd>
+            <dt>Approach</dt><dd>I model THz propagation through biological media and examine how molecular absorption, tissue structure, and detector uncertainty affect communication and sensing. A related direction investigates how THz fields couple to collective protein motions and whether these interactions can support selective actuation.</dd>
+            <dt>Purpose</dt><dd>This work identifies physical constraints and design requirements for intra-body sensing and communication, while examining the feasibility of electromagnetic interaction with molecular systems.</dd>
           </dl>
+          <div class="theme-papers"><h4>Selected papers</h4><ul><li><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:e5wmG9Sq2KIC" target="_blank" rel="noopener">Nano-Bio Systems for Intra-body Sensing, Actuation, and Communication in the Terahertz Band and Beyond</a><span class="theme-paper-meta">K. Skos, H. Elayan, S. Elmaadawy, P. Kulakowski, J. M. Jornet · IEEE Communications Surveys &amp; Tutorials, vol. 28, pp. 6354–6383, 2026</span></li><li><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;citation_for_view=1h96GusAAAAJ:_kc_bZDykSQC" target="_blank" rel="noopener">Information Rates of Controlled Protein Interactions Using Terahertz Communication</a><span class="theme-paper-meta">H. Elayan, A. W. Eckford, R. S. Adve · IEEE Transactions on NanoBioscience, vol. 20, no. 1, pp. 9–19</span></li></ul></div>
         </div>
         <div class="proj-card proj-c2">
           <div class="project-visual" aria-hidden="true"></div>
@@ -653,10 +653,12 @@
             <span class="tag tag-teal">ISAC</span>
           </div>
           <dl>
-            <dt>Question</dt><dd class="project-question">Can structured near-field wavefronts create new degrees of freedom for communication and sensing?</dd><dt>Approach</dt><dd>Exploits near-field electromagnetic effects to unlock spatial degrees of freedom beyond far-field limits, enabling high-capacity THz links and super-resolved sensing.</dd>
-            <dt>Impact</dt><dd>Advances a system-level near-field THz framework applicable to dense wireless infrastructure (AI factories, intra-datacenter links) and sub-millimetre sensing, directly enabling the distributed ISAC architectures targeted by NSF and DEVCOM programmes.</dd>
+            <dt>Question</dt><dd class="project-question">How does wavefront shape affect communication and sensing in the radiative near field?</dd>
+            <dt>Approach</dt><dd>I investigate wavefront shaping using focused, Bessel, and Airy beams at sub-THz frequencies. The work examines blockage-resilient links, sensing behind obstacles, and how spatial field structure changes useful coverage and interference between users.</dd>
+            <dt>Purpose</dt><dd>The aim is to establish when structured beams offer an advantage over conventional illumination and to quantify the associated tradeoffs in coverage, interference, and sensing performance.</dd>
           </dl>
-          <p class="proj-collab">In collaboration with Brown University and Rice University (United States)</p>
+          <div class="theme-papers"><h4>Current work</h4><ul class="theme-work"><li>Bessel-beam sensing behind multiple obstacles and blockage-resilient sub-THz links.</li><li>Near-field interference and coverage with focused, Bessel, and Airy wavefronts.</li></ul><p class="theme-status">Related manuscripts are in preparation or under review.</p></div>
+          <p class="proj-collab">Funding: <a href="https://classic.rice.edu/" target="_blank" rel="noopener">CLASSIC</a></p>
         </div>
         <div class="proj-card proj-c3">
           <div class="project-visual" aria-hidden="true"></div>
@@ -675,10 +677,12 @@
             <span class="tag tag-blue">structured illumination</span>
           </div>
           <dl>
-            <dt>Question</dt><dd class="project-question">How do optical fields and scaffold mechanics jointly shape the interface experienced by growing neural tissue?</dd><dt>Approach</dt><dd>Investigates electromagnetic wave propagation through riboflavin-crosslinked hydrogel media as a system-level design problem, characterizing how structured illumination shapes the resulting scaffold properties.</dd>
-            <dt>Impact</dt><dd>Establishes structured illumination as an engineering-controlled propagation variable, enabling reproducible scaffolds for neural tissue modeling and new routes for EM-based characterization of engineered biological media.</dd>
+            <dt>Question</dt><dd class="project-question">How can structured illumination shape the mechanical properties of hydrogel scaffolds?</dd>
+            <dt>Approach</dt><dd>I study optical propagation and energy deposition in riboflavin-crosslinked hydrogels, using communication-theoretic models to design illumination patterns that produce more uniform scaffold mechanics.</dd>
+            <dt>Purpose</dt><dd>This work supports the design of reproducible hydrogel environments for neural tissue studies and connects electromagnetic field control with the resulting material properties.</dd>
           </dl>
-          <p class="proj-collab">In collaboration with the University of Essex (United Kingdom)</p>
+          <div class="theme-papers"><h4>Selected paper</h4><ul><li><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:j3f4tGmQtD8C" target="_blank" rel="noopener">Engineering Uniform Hydrogel Mechanics via Communication-Theoretic Structured Illumination</a><span class="theme-paper-meta">H. Elayan, J. Mullet, A. Mohr, R. Scherer, M. Barros, J. M. Jornet · Proceedings of the 13th Annual ACM International Conference on Nanoscale Computing and Communication, 2026</span></li></ul></div>
+          <p class="proj-collab">In collaboration with the University of Essex (United Kingdom). PI: <a href="https://www.essex.ac.uk/people/BARRO44008/Michael-Barros" target="_blank" rel="noopener">Michael Barros</a>.</p>
         </div>
         <div class="proj-card proj-c4">
           <div class="project-visual" aria-hidden="true"></div>
@@ -701,25 +705,15 @@
             <span class="tag tag-magenta">6G mMTC</span>
           </div>
           <dl>
-            <dt>Question</dt><dd class="project-question">Can living microbial communities become both sensing media and computational substrates?</dd><dt>Approach</dt><dd>Characterizes EM wave propagation through biofilms and harnesses bacterial collective signal-processing for biocomputing and non-invasive infection sensing, integrating gene regulatory neural network models with 6G mMTC system design.</dd>
-            <dt>Impact</dt><dd>Expands molecular communication theory to living computational substrates, with relevance to biocomputing architectures, EM-based detection of antimicrobial-resistant biofilms, and bio-inspired intelligence for 6G network control.</dd>
+            <dt>Question</dt><dd class="project-question">How can biological information processing contribute to sensing and future communication systems?</dd>
+            <dt>Approach</dt><dd>I study gene regulatory neural network models and electromagnetic propagation through biofilms, examining how biological responses can be represented, coupled, and used for computation and sensing.</dd>
+            <dt>Purpose</dt><dd>This work explores biological intelligence as a computational resource and develops models connecting molecular regulation, microbial communities, and communication networks.</dd>
           </dl>
+          <div class="theme-papers"><h4>Selected paper</h4><ul><li><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:RHpTSmoSYBkC" target="_blank" rel="noopener">Integrating biological intelligence into 6G mMTC systems using gene regulatory neural networks</a><span class="theme-paper-meta">H. Elayan, S. Somathilaka, J. M. Jornet, S. Balasubramaniam · npj Wireless Technology, vol. 2, article 54, 2026</span></li></ul></div>
           <p class="proj-collab">In collaboration with the University of Nebraska–Lincoln (United States)</p>
         </div>
       </div>
-    </section>
-
-    <section id="publications">
-      <p class="eyebrow">publications</p>
-      <h2 class="section-title">Selected Publications · 2026</h2>
-      <p class="section-sub">The complete, continually updated record is on <a href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
-      <ul class="row-list">
-        <li><span class="row-tag">J</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:e5wmG9Sq2KIC" target="_blank" rel="noopener">Nano-Bio Systems for Intra-body Sensing, Actuation, and Communication in the Terahertz Band and Beyond</a></span><p class="row-meta">K. Skos, H. Elayan, S. Elmaadawy, P. Kulakowski, J. M. Jornet · IEEE Communications Surveys &amp; Tutorials, vol. 28, pp. 6354–6383, 2026</p></div></li>
-        <li><span class="row-tag">J</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:RHpTSmoSYBkC" target="_blank" rel="noopener">Integrating biological intelligence into 6G mMTC systems using gene regulatory neural networks</a></span><p class="row-meta">H. Elayan, S. Somathilaka, J. M. Jornet, S. Balasubramaniam · npj Wireless Technology, vol. 2, article 54, 2026</p></div></li>
-        <li><span class="row-tag">C</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:j3f4tGmQtD8C" target="_blank" rel="noopener">Engineering Uniform Hydrogel Mechanics via Communication-Theoretic Structured Illumination</a></span><p class="row-meta">H. Elayan, J. Mullet, A. Mohr, R. Scherer, M. Barros, J. M. Jornet · Proceedings of the 13th Annual ACM International Conference on Nanoscale Computing and Communication, 2026</p></div></li>
-        <li><span class="row-tag">C</span><div><span class="row-title"><a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=1h96GusAAAAJ&amp;sortby=pubdate&amp;citation_for_view=1h96GusAAAAJ:4JMBOYKVnBMC" target="_blank" rel="noopener">Terahertz Integrated Sensing and Communication for Intra-Alveolar Nanosensor Networks</a></span><p class="row-meta">K. Skos, H. Elayan, J. M. Jornet, P. Kulakowski · Proceedings of the 13th Annual ACM International Conference on Nanoscale Computing and Communication, 2026</p></div></li>
-      </ul>
-      <a class="see-more" href="https://scholar.google.com/citations?user=1h96GusAAAAJ&hl=en" target="_blank" rel="noopener">→ full publication list on Google Scholar</a>
+      <p class="research-publications-note">For the full publication list, please visit <a href="https://scholar.google.com/citations?user=1h96GusAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
     </section>
 
     <section id="blogs">
@@ -844,7 +838,7 @@
 
   const accentMap = {
     tayf:'#5B5FEF', about:'#12A594', research:'#B23A82',
-    publications:'#5B5FEF', blogs:'#3B6FE0', honors:'#12A594', teaching:'#3B6FE0', service:'#B23A82', contact:'#5B5FEF'
+    blogs:'#3B6FE0', honors:'#12A594', teaching:'#3B6FE0', service:'#B23A82', contact:'#5B5FEF'
   };
 
   function showTab(id, updateHash){
